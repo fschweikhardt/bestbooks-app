@@ -36,7 +36,7 @@ export default class BookSearch extends React.Component {
 
         if (!isNaN(year) ) {
             console.log(year, ' selected')
-            Data
+            
         }
 
 
