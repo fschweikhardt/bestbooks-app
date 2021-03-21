@@ -2,6 +2,7 @@ import React from 'react'
 import './App.css'
 import LandingPage from './LandingPage'
 import BookSearch from './BookSearch'
+import GetRandomBook from './GetRandomBook'
 import DisplayList from './DisplayList'
 
 class App extends React.Component {
@@ -12,6 +13,7 @@ class App extends React.Component {
         <main>
           <LandingPage />
           <BookSearch />
+          <GetRandomBook />
           <DisplayList />
         </main>
         <footer>Footer</footer>
