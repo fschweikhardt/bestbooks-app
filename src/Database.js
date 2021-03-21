@@ -31,7 +31,7 @@ const DATA = {
         title: "The Friend", 
         author: "Sigrid Nunez"
     }],
-    "award list 3" : [
+    "The Pultizer Prize for Fiction" : [
     {
         year: 2020, 
         title: "The Nickel Boys", 

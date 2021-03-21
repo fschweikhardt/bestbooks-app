@@ -7,9 +7,14 @@ import GetRandomBook from './GetRandomBook'
 import DisplayList from './DisplayList'
 
 class App extends React.Component {
+  state = {
+    results: DATA["The Booker Prize"][0]
+  }
 
   render() {
-    console.log(Object.keys(DATA))
+    console.log(this.state.results)
+    // let random = Math.floor(Math.random() * 3)
+    // console.log(DATA["The Booker Prize"][random])
 
     return (
       <div>
