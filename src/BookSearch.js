@@ -6,7 +6,7 @@ export default class BookSearch extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
         // if (e.target.list1.checked == true) return alert('checked')
-        console.log(e.target.list1.checked)
+        console.log('list1 :', e.target.list1.name)
         console.log(e.target.year.value)
         console.log(e.target.author.value)
     }
@@ -26,7 +26,6 @@ export default class BookSearch extends React.Component {
                                 type="checkbox"
                                 name="The Booker Prize"
                                 id="list1"
-                                value="include"
                             />
                         </label>
                         <br />
@@ -36,7 +35,6 @@ export default class BookSearch extends React.Component {
                                 type="checkbox"
                                 name="National Book Award for Fiction"
                                 id="list2"
-                                value="National Book Award for Fiction"
                             />
                         </label>
                         <br />
@@ -46,7 +44,6 @@ export default class BookSearch extends React.Component {
                                 type="checkbox"
                                 name="The Pultizer Prize for Fiction"
                                 id="list3"
-                                value="The Pultizer Prize for Fiction"
                             />
                         </label>
                         <br />
