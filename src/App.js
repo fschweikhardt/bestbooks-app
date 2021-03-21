@@ -10,7 +10,7 @@ import DisplayList from './DisplayList'
 
 class App extends React.Component {
   state = {
-    results: DATA["The Booker Prize"][0]
+    results: [DATA["National Book Award for Fiction"][0]]
   }
 
   handleSetResults = setData => {
@@ -21,13 +21,12 @@ class App extends React.Component {
 
   render() {
     const value = {
-      results: this.handleSetResults
+      results: this.state.results,
+      setResults: this.handleSetResults
     }
 
     console.log(this.state.results)
-    // let random = Math.floor(Math.random() * 3)
-    // console.log(DATA["The Booker Prize"][random])
-
+    
     return (
       <BestBooksContext.Provider value={value}>
         <div>

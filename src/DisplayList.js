@@ -10,8 +10,6 @@ export default class DisplayList extends React.Component {
                 <h1>Display List</h1>
                 <div>
                     <Book />
-                    <Book />
-                    <Book />
                 </div>
             </div>
         )
