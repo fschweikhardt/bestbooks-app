@@ -5,13 +5,19 @@ export default class BookSearch extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        // console.log('list1 :', e.target.list1.name)
-        //console.log(e.target.year.value)
-        // console.log(e.target.author.value)
 
         let Data = DATA
         let lists = []
         let awardBooks = []
+
+        // get all books from  Data
+        let awards = Object.keys(Data)
+        let allBooks = []
+        for (const value of awards.values()) {
+            allBooks.push(Data[value])
+        }
+        allBooks = allBooks.flat()
+        //console.log('all books', allBooks)
 
         //filter by award list
         if (e.target.list1.checked === true) {
@@ -28,20 +34,43 @@ export default class BookSearch extends React.Component {
             awardBooks.push(Data[value])
         }
         awardBooks = awardBooks.flat()
-        console.log(awardBooks)
-        
+        console.log('awardBooks', awardBooks)
+
         //filter by year
-        let year = e.target.year.value
+        let yearValue = Number(e.target.year.value)
         let yearBooks = []
 
-        if (!isNaN(year) ) {
-            console.log(year, ' selected')
-            
+        if (yearValue) {
+            for (let i = 0; i < allBooks.length; i++) {
+                if (allBooks[i].year === yearValue) {
+                    yearBooks[i] = allBooks[i]
+                }
+            }
         }
 
+        yearBooks = yearBooks.filter(Boolean)
+        //console.log('yearBooks', yearBooks)
+        
+        //if nothing selected
+        if (awardBooks.length === 0 && yearBooks.length === 0) {
+            return alert('please pick a list or year! (or random button)')
+        }
 
-        //filter by input
+        //if awardBooks and no yearBooks selected
+        if (awardBooks.length > 0 && yearBooks.length === 0) {
+            console.log('setState to awardBooks results')
+        }
+        
+        //if yearBooks and no awardBooks selected
+        if (awardBooks.length === 0 && yearBooks.length > 0) {
+            console.log('setState to yearBooks results')
+        }
+       
+        //if list and year are selected return book(s) from yearValue
+        let arr1 = [...awardBooks]
+        //get the books with the correct year
 
+        
     }
 
     render() {
@@ -59,6 +88,7 @@ export default class BookSearch extends React.Component {
                                 type="checkbox"
                                 name="The Booker Prize"
                                 id="list1"
+                                defaultChecked
                             />
                         </label>
                         <br />
@@ -68,6 +98,7 @@ export default class BookSearch extends React.Component {
                                 type="checkbox"
                                 name="National Book Award for Fiction"
                                 id="list2"
+                                defaultChecked
                             />
                         </label>
                         <br />
@@ -77,6 +108,7 @@ export default class BookSearch extends React.Component {
                                 type="checkbox"
                                 name="The Pultizer Prize for Fiction"
                                 id="list3"
+                                defaultChecked
                             />
                         </label>
                         <br />
@@ -100,7 +132,7 @@ export default class BookSearch extends React.Component {
                             </select>
                         </label>
                     </div>
-                    <div>
+                    {/* <div>
                         <h3>Author</h3>
                         <label htmlFor="author">
                             Seach by Author
@@ -111,7 +143,7 @@ export default class BookSearch extends React.Component {
                                 defaultValue="dan"
                             />
                         </label>
-                    </div>
+                    </div> */}
                     <br />
                     <button type="submit">
                         Submit

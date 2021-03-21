@@ -5,7 +5,6 @@ export default class Book extends React.Component {
     static contextType = BestBooksContext
 
     render() {
-        console.log(this.context.results[0])
         let results = this.context.results[0]
         return (
             <div>
