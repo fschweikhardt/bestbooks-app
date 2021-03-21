@@ -1,5 +1,4 @@
 import React from 'react'
-// import { Router } from 'react-router-dom'
 import './App.css'
 import DATA from './Database'
 import BestBooksContext from './BestBooksContext'

@@ -5,10 +5,43 @@ export default class BookSearch extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        // if (e.target.list1.checked == true) return alert('checked')
-        console.log('list1 :', e.target.list1.name)
-        console.log(e.target.year.value)
-        console.log(e.target.author.value)
+        // console.log('list1 :', e.target.list1.name)
+        //console.log(e.target.year.value)
+        // console.log(e.target.author.value)
+
+        let Data = DATA
+        let lists = []
+        let awardBooks = []
+
+        //filter by award list
+        if (e.target.list1.checked === true) {
+            lists.push(e.target.list1.name)
+        }
+        if (e.target.list2.checked === true) {
+            lists.push(e.target.list2.name)
+        }
+        if (e.target.list3.checked === true) {
+            lists.push(e.target.list3.name)
+        }
+        
+        for (const value of lists.values()) {
+            awardBooks.push(Data[value])
+        }
+        awardBooks = awardBooks.flat()
+        console.log(awardBooks)
+        
+        //filter by year
+        let year = e.target.year.value
+        let yearBooks = []
+
+        if (!isNaN(year) ) {
+            console.log(year, ' selected')
+            Data
+        }
+
+
+        //filter by input
+
     }
 
     render() {
@@ -47,13 +80,20 @@ export default class BookSearch extends React.Component {
                             />
                         </label>
                         <br />
+                        <button>
+                            all
+                        </button>
+                        <button>
+                            none
+                        </button>
+                        <br />
                     </div>
                     <div>
                         <h3>Year</h3>
                         <label htmlFor="year">
                             Choose a year
                             <select name="year" id="year">
-                                <option hidden disabled selected value></option>
+                                <option value="optional"></option>
                                 <option value="2020">2020</option>
                                 <option value="2019">2019</option>
                                 <option value="2018">2018</option>
