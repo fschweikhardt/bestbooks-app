@@ -85,7 +85,6 @@ export default class BookSearch extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <h3>Award Lists</h3>
-                        <br />
                         <label htmlFor="The Booker Prize">
                             The Booker Prize
                             <input
