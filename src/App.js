@@ -4,6 +4,7 @@ import BestBooksContext from './BestBooksContext'
 import LandingPage from './LandingPage'  
 import BookSearch from './BookSearch'
 import DisplayList from './DisplayList'
+import AwardInfo from './AwardInfo'
 
 class App extends React.Component {
   state = {
@@ -32,6 +33,7 @@ class App extends React.Component {
             <LandingPage />
             <BookSearch />
             <DisplayList />
+            <AwardInfo />
           </main>
           <footer><hr /> Footer</footer>
         </div>
