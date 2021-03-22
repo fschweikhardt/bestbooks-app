@@ -22,7 +22,7 @@ export default class DisplayList extends React.Component {
                                     year={display.year}
                                 />
                             </li>
-                            )})}
+                        )})}
                     </ul>
                 </div>
             </div>
