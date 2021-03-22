@@ -1,6 +1,5 @@
 import React from 'react'
 import './App.css'
-import DATA from './Database'
 import BestBooksContext from './BestBooksContext'
 import LandingPage from './LandingPage'  
 import BookSearch from './BookSearch'
@@ -9,7 +8,7 @@ import DisplayList from './DisplayList'
 
 class App extends React.Component {
   state = {
-    results: [DATA["National Book Award for Fiction"][0]]
+    results: []
   }
 
   handleSetResults = setData => {

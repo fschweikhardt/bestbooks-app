@@ -14,8 +14,15 @@ export default class DisplayList extends React.Component {
                 <div>
                     <ul>
                         {this.context.results.map( display => {
-                            <li></li>
-                        })}
+                            return (
+                            <li key={display.title}>
+                                <Book 
+                                    title={display.title}
+                                    author={display.author}
+                                    year={display.year}
+                                />
+                            </li>
+                            )})}
                     </ul>
                 </div>
             </div>
