@@ -93,35 +93,35 @@ export default class BookSearch extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <h3>Award Lists</h3>
-                        <label htmlFor="The Booker Prize">
-                            The Booker Prize
                             <input
                                 type="radio"
                                 name="award list"
                                 id="The Booker Prize"
                                 value="The Booker Prize"
                             />
-                        </label>
+                            <label htmlFor="The Booker Prize">
+                            The Booker Prize
+                            </label>
                         <br />
-                        <label htmlFor="National Book Award for Fiction">
-                            National Book Award for Fiction
                             <input
                                 type="radio"
                                 name="award list"
                                 id="National Book Award for Fiction"
                                 value="National Book Award for Fiction"
                             />
-                        </label>
+                            <label htmlFor="National Book Award for Fiction">
+                            National Book Award for Fiction
+                            </label>
                         <br />
-                        <label htmlFor="The Pultizer Prize for Fiction">
-                            The Pultizer Prize for Fiction
                             <input
                                 type="radio"
                                 name="award list"
                                 id="The Pultizer Prize for Fiction"
                                 value="The Pultizer Prize for Fiction"
                             />
-                        </label>
+                            <label htmlFor="The Pultizer Prize for Fiction">
+                            The Pultizer Prize for Fiction
+                            </label>
                         <br />
                     </div>
                     <div>
