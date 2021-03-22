@@ -1,7 +1,9 @@
 import React from 'react'
 import DATA from './Database'
+import BestBooksContext from './BestBooksContext'
 
 export default class BookSearch extends React.Component {
+    static contextType = BestBooksContext
 
     handleSubmit = e => {
         e.preventDefault()
@@ -69,8 +71,10 @@ export default class BookSearch extends React.Component {
         //if list and year are selected return book(s) from yearValue
         let arr1 = [...awardBooks]
         //get the books with the correct year
+        let filtered = arr1.filter( books => books.year === yearValue)
+        console.log(filtered)
+        this.context.setResults(filtered)
 
-        
     }
 
     render() {
