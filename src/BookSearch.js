@@ -124,6 +124,7 @@ export default class BookSearch extends React.Component {
                             </label>
                         <br />
                     </div>
+                    <p>and/or</p>
                     <div>
                         <h3>Year</h3>
                         <label htmlFor="year">
@@ -148,11 +149,11 @@ export default class BookSearch extends React.Component {
                             />
                         </label>
                     </div> */}
-                    <br />
                     <button type="submit">
                         Submit
                     </button>
                 </form>
+                <p>or</p>
                 <div>
                     <h2>Random book generator</h2>
                     <button 
