@@ -67,6 +67,24 @@ export default class BookSearch extends React.Component {
         
     }
 
+    getRandomBook = e => {
+        e.preventDefault()
+        console.log('random book')
+
+        // get all books from  Data
+        let Data = DATA
+        let awards = Object.keys(Data)
+        let allBooks = []
+        for (const value of awards.values()) {
+            allBooks.push(Data[value])
+        }
+        allBooks = allBooks.flat()
+        //console.log('all books', allBooks)
+        let randomPick = allBooks[Math.floor(Math.random() * allBooks.length)]
+        console.log(randomPick)
+        this.context.setResults([randomPick])
+    }
+
     render() {
         return (
             <div>
@@ -135,6 +153,15 @@ export default class BookSearch extends React.Component {
                         Submit
                     </button>
                 </form>
+                <div>
+                    <h2>Random book generator</h2>
+                    <button 
+                        type="button"
+                        onClick={this.getRandomBook}
+                        >
+                        Get Random Book
+                    </button>
+                </div>
             </div>
         )
     }
