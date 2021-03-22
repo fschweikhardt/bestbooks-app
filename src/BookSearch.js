@@ -42,7 +42,7 @@ export default class BookSearch extends React.Component {
 
         //if nothing selected
         if (awardBooks.length === 0 && yearBooks.length === 0   ) {
-            return alert('please pick a list or year or click random button)')
+            return alert("please pick a list or year or click 'Get Random Book' below")
         }
 
         //if yearBooks and no awardBooks selected

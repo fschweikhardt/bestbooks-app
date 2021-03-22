@@ -28,14 +28,20 @@ class App extends React.Component {
     return (
       <BestBooksContext.Provider value={value}>
         <div>
-          <header>Header<hr /></header>
+          <header>
+              “I shall be miserable if I have not an excellent library.” 
+              – Jane Austen in <i>Pride and Prejudice</i> 
+          <br/>
+          <br/>
+          <hr />
+          </header>
           <main>
             <LandingPage />
             <BookSearch />
             <DisplayList />
             <AwardInfo />
           </main>
-          <footer><hr /> Footer</footer>
+          <footer><hr />Created by Frank Schweikhardt. All rights reserved. Copywrite 2021</footer>
         </div>
       </BestBooksContext.Provider>
     );
