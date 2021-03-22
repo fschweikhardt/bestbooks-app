@@ -4,6 +4,7 @@ export default function Book (props) {
        
         return (
             <div>
+                <hr />
                 <h1>{props.title}</h1>
                 <p>by</p>
                 <h2>{props.author}</h2>

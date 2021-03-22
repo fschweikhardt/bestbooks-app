@@ -28,14 +28,14 @@ class App extends React.Component {
     return (
       <BestBooksContext.Provider value={value}>
         <div>
-          <header>Header</header>
+          <header>Header<hr /></header>
           <main>
             <LandingPage />
             <BookSearch />
             <GetRandomBook />
             <DisplayList />
           </main>
-          <footer>Footer</footer>
+          <footer><hr /> Footer</footer>
         </div>
       </BestBooksContext.Provider>
     );
