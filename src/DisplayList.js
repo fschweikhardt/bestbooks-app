@@ -20,6 +20,7 @@ export default class DisplayList extends React.Component {
                                     title={display.title}
                                     author={display.author}
                                     year={display.year}
+                                    award={display.award}
                                 />
                             </li>
                         )})}

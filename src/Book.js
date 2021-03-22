@@ -9,6 +9,8 @@ export default function Book (props) {
             <h2>{props.author}</h2>
             <p>published in</p>
             <h3>{props.year}</h3>
+            <p>awarded</p>
+            <h3>{props.award}</h3>
         </div>
     )
 }
