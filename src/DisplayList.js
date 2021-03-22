@@ -7,10 +7,17 @@ export default class DisplayList extends React.Component {
 
     render() {
         console.log(this.context.results)
+         if (this.context.results.length === 0) {
+            console.log('empty')
+            return (
+                <div>
+                    <p>push a button</p>
+                </div>
+            )
+        }
         return (
             <div>
                 <hr />
-                <h1>Display List</h1>
                 <div>
                     <ul>
                         {this.context.results.map( display => {
