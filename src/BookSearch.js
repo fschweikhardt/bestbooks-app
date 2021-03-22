@@ -24,14 +24,12 @@ export default class BookSearch extends React.Component {
         let list = e.target["award list"].value
         if (list) {
             awardBooks = Data[list]
-        }
-        
+        } 
         console.log('awardBooks', awardBooks)
 
         //filter by year
         let yearValue = Number(e.target.year.value)
         let yearBooks = []
-
         if (yearValue) {
             for (let i = 0; i < allBooks.length; i++) {
                 if (allBooks[i].year === yearValue) {
@@ -39,11 +37,8 @@ export default class BookSearch extends React.Component {
                 }
             }
         }
-
         yearBooks = yearBooks.filter(Boolean)
         console.log('yearBooks', yearBooks)
-
-
 
         //if nothing selected
         if (awardBooks.length === 0 && yearBooks.length === 0   ) {
@@ -64,9 +59,11 @@ export default class BookSearch extends React.Component {
 
         //if list and year are selected return book(s) from yearValue
         //get the books with the correct year
-        let filtered = [...awardBooks].filter( books => books.year === yearValue)
-        console.log(filtered)
-        this.context.setResults(filtered)
+        if (awardBooks.length > 0 && yearBooks.length > 0) {
+            let filtered = [...awardBooks].filter( books => books.year === yearValue)   
+            console.log(filtered)
+            this.context.setResults(filtered)
+        }
         
     }
 
