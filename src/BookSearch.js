@@ -9,8 +9,6 @@ export default class BookSearch extends React.Component {
         e.preventDefault()
 
         let Data = DATA
-        let lists = []
-        let awardBooks = []
 
         // get all books from  Data
         let awards = Object.keys(Data)
@@ -21,22 +19,14 @@ export default class BookSearch extends React.Component {
         allBooks = allBooks.flat()
         //console.log('all books', allBooks)
 
-        //filter by award list
-        // if (e.target.list1.checked === true) {
-        //     lists.push(e.target.list1.name)
-        // }
-        // if (e.target.list2.checked === true) {
-        //     lists.push(e.target.list2.name)
-        // }
-        // if (e.target.list3.checked === true) {
-        //     lists.push(e.target.list3.name)
-        // }
+        //filter by award list radio buttons
+        let awardBooks = []
+        let list = e.target["award list"].value
+        if (list) {
+            awardBooks = Data[list]
+        }
         
-        // for (const value of lists.values()) {
-        //     awardBooks.push(Data[value])
-        // }
-        // awardBooks = awardBooks.flat()
-        // console.log('awardBooks', awardBooks)
+        console.log('awardBooks', awardBooks)
 
         //filter by year
         let yearValue = Number(e.target.year.value)
@@ -51,32 +41,36 @@ export default class BookSearch extends React.Component {
         }
 
         yearBooks = yearBooks.filter(Boolean)
-        //console.log('yearBooks', yearBooks)
-        
+        console.log('yearBooks', yearBooks)
+
+
+
         //if nothing selected
-        if (awardBooks.length === 0 && yearBooks.length === 0) {
+        if (awardBooks.length === 0 && yearBooks.length === 0   ) {
             return alert('please pick a list or year! (or random button)')
         }
 
-        //if awardBooks and no yearBooks selected
-        if (awardBooks.length > 0 && yearBooks.length === 0) {
-            console.log('setState to awardBooks results')
-            this.context.setResults(awardBooks)
-        }
-        
         //if yearBooks and no awardBooks selected
         if (awardBooks.length === 0 && yearBooks.length > 0) {
             console.log('setState to yearBooks results')
             this.context.setResults(yearBooks)
         }
        
+        /*
+
+        //if awardBooks and no yearBooks selected
+        if (awardBooks.length > 0 && yearBooks.length === 0) {
+            console.log('setState to awardBooks results')
+            this.context.setResults(awardBooks)
+        }
+
         //if list and year are selected return book(s) from yearValue
         let arr1 = [...awardBooks]
         //get the books with the correct year
         let filtered = arr1.filter( books => books.year === yearValue)
         console.log(filtered)
         this.context.setResults(filtered)
-
+        */
     }
 
     render() {
