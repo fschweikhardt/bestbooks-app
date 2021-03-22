@@ -55,8 +55,6 @@ export default class BookSearch extends React.Component {
             console.log('setState to yearBooks results')
             this.context.setResults(yearBooks)
         }
-       
-        /*
 
         //if awardBooks and no yearBooks selected
         if (awardBooks.length > 0 && yearBooks.length === 0) {
@@ -65,12 +63,11 @@ export default class BookSearch extends React.Component {
         }
 
         //if list and year are selected return book(s) from yearValue
-        let arr1 = [...awardBooks]
         //get the books with the correct year
-        let filtered = arr1.filter( books => books.year === yearValue)
+        let filtered = [...awardBooks].filter( books => books.year === yearValue)
         console.log(filtered)
         this.context.setResults(filtered)
-        */
+        
     }
 
     render() {
