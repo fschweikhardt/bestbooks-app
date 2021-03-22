@@ -22,21 +22,21 @@ export default class BookSearch extends React.Component {
         //console.log('all books', allBooks)
 
         //filter by award list
-        if (e.target.list1.checked === true) {
-            lists.push(e.target.list1.name)
-        }
-        if (e.target.list2.checked === true) {
-            lists.push(e.target.list2.name)
-        }
-        if (e.target.list3.checked === true) {
-            lists.push(e.target.list3.name)
-        }
+        // if (e.target.list1.checked === true) {
+        //     lists.push(e.target.list1.name)
+        // }
+        // if (e.target.list2.checked === true) {
+        //     lists.push(e.target.list2.name)
+        // }
+        // if (e.target.list3.checked === true) {
+        //     lists.push(e.target.list3.name)
+        // }
         
-        for (const value of lists.values()) {
-            awardBooks.push(Data[value])
-        }
-        awardBooks = awardBooks.flat()
-        console.log('awardBooks', awardBooks)
+        // for (const value of lists.values()) {
+        //     awardBooks.push(Data[value])
+        // }
+        // awardBooks = awardBooks.flat()
+        // console.log('awardBooks', awardBooks)
 
         //filter by year
         let yearValue = Number(e.target.year.value)
@@ -61,11 +61,13 @@ export default class BookSearch extends React.Component {
         //if awardBooks and no yearBooks selected
         if (awardBooks.length > 0 && yearBooks.length === 0) {
             console.log('setState to awardBooks results')
+            this.context.setResults(awardBooks)
         }
         
         //if yearBooks and no awardBooks selected
         if (awardBooks.length === 0 && yearBooks.length > 0) {
             console.log('setState to yearBooks results')
+            this.context.setResults(yearBooks)
         }
        
         //if list and year are selected return book(s) from yearValue
@@ -88,39 +90,32 @@ export default class BookSearch extends React.Component {
                         <label htmlFor="The Booker Prize">
                             The Booker Prize
                             <input
-                                type="checkbox"
-                                name="The Booker Prize"
-                                id="list1"
-                                defaultChecked
+                                type="radio"
+                                name="award list"
+                                id="The Booker Prize"
+                                value="The Booker Prize"
                             />
                         </label>
                         <br />
                         <label htmlFor="National Book Award for Fiction">
                             National Book Award for Fiction
                             <input
-                                type="checkbox"
-                                name="National Book Award for Fiction"
-                                id="list2"
-                                defaultChecked
+                                type="radio"
+                                name="award list"
+                                id="National Book Award for Fiction"
+                                value="National Book Award for Fiction"
                             />
                         </label>
                         <br />
                         <label htmlFor="The Pultizer Prize for Fiction">
                             The Pultizer Prize for Fiction
                             <input
-                                type="checkbox"
-                                name="The Pultizer Prize for Fiction"
-                                id="list3"
-                                defaultChecked
+                                type="radio"
+                                name="award list"
+                                id="The Pultizer Prize for Fiction"
+                                value="The Pultizer Prize for Fiction"
                             />
                         </label>
-                        <br />
-                        <button>
-                            all
-                        </button>
-                        <button>
-                            none
-                        </button>
                         <br />
                     </div>
                     <div>
