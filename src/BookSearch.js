@@ -69,8 +69,12 @@ export default class BookSearch extends React.Component {
 
     getRandomBook = e => {
         e.preventDefault()
-        console.log('random book')
+        console.log('random book clicked')
 
+        let options = {
+            
+        }
+/*
         // get all books from  Data
         let Data = DATA
         let awards = Object.keys(Data)
@@ -83,6 +87,8 @@ export default class BookSearch extends React.Component {
         let randomPick = allBooks[Math.floor(Math.random() * allBooks.length)]
         console.log(randomPick)
         this.context.setResults([randomPick])
+*/
+
     }
 
     render() {
