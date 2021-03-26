@@ -1,6 +1,6 @@
 import React from 'react'
-import DATA from './Database'
 import BestBooksContext from './BestBooksContext'
+// import { API_ENDPOINT, API_TOKEN } from './config'
 
 export default class BookSearch extends React.Component {
     static contextType = BestBooksContext
@@ -8,6 +8,7 @@ export default class BookSearch extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
 
+/*
         let Data = DATA
 
         // get all books from  Data
@@ -64,16 +65,35 @@ export default class BookSearch extends React.Component {
             console.log(filtered)
             this.context.setResults(filtered)
         }
-        
+*/
     }
 
     getRandomBook = e => {
         e.preventDefault()
         console.log('random book clicked')
-
-        let options = {
-            
+        
+        const options = {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': 'Bearer 123456789'
+            }
         }
+        
+        fetch(`http://localhost:9000/api/random-book`, options)
+            .then( res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json()
+            })
+            .then(res => {
+                console.log(res)
+            })
+            .catch ( err => console.log(err))
+        
+    }
+        
 /*
         // get all books from  Data
         let Data = DATA
@@ -89,9 +109,8 @@ export default class BookSearch extends React.Component {
         this.context.setResults([randomPick])
 */
 
-    }
-
     render() {
+       // console.log(`${config.API_ENDPOINT}, ${config.API_TOKEN}`, config.API_ENDPOINT, config.API_TOKEN)
         return (
             <div>
                 <hr />
