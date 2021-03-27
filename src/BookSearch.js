@@ -7,6 +7,42 @@ export default class BookSearch extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
+        
+        function awardList() {
+            let award = {
+                "award" : e.target['award list'].value
+            }
+            const options = {
+                method: 'POST',
+                body: JSON.stringify(award),
+                headers: {
+                    'content-type': 'application/json',
+                    'Authorization': 'Bearer 123456789'
+                }
+            }
+            fetch(`http://localhost:9000/api/award-list`, options)
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(e => Promise.reject(e))
+                    }
+                    return res.json()
+                })
+                .then(res => {
+                    console.log(res)
+                    //this.context.setResults(res)
+                })
+                .catch ( err => console.log(err))
+            }
+        
+        function yearList() {
+            
+        }
+        //render logic//
+            //if just award list...
+            //if year selected...
+            //if both award and year selected...
+        awardList()
+    }
 
 /*
         let Data = DATA
@@ -66,7 +102,6 @@ export default class BookSearch extends React.Component {
             this.context.setResults(filtered)
         }
 */
-    }
 
     getRandomBook = e => {
         e.preventDefault()
@@ -92,7 +127,6 @@ export default class BookSearch extends React.Component {
                 this.context.setResults(res)
             })
             .catch ( err => console.log(err))
-        
     }
         
 /*

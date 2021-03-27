@@ -1,8 +1,12 @@
 import React from 'react'
+import BestBooksContext from './BestBooksContext'
 
 export default class AwardInfo extends React.Component {
+    static contextType = BestBooksContext
     
     render() {
+        // console.log(this.context.results[0])
+        // let rando = this.context.results[0]
         
         return (
             <div>
