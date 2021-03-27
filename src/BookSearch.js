@@ -88,7 +88,8 @@ export default class BookSearch extends React.Component {
                 return res.json()
             })
             .then(res => {
-                console.log(res[0].id, res[0].title)
+                console.log(res[0])
+                this.context.setResults(res)
             })
             .catch ( err => console.log(err))
         
