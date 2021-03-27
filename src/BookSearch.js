@@ -7,12 +7,12 @@ export default class BookSearch extends React.Component {
 
     handleSubmit = e => {
         e.preventDefault()
-        
+
         function awardList() {
             let award = {
-                "award" : e.target['award list'].value
+                'award' : e.target.award.value
             }
-            const options = {
+            let options = {
                 method: 'POST',
                 body: JSON.stringify(award),
                 headers: {
@@ -27,21 +27,79 @@ export default class BookSearch extends React.Component {
                     }
                     return res.json()
                 })
-                .then(res => {
-                    console.log(res)
-                    //this.context.setResults(res)
+                .then(data => {
+                    console.log(data)
+                    this.context.setResults(data)
                 })
-                .catch ( err => console.log(err))
+                .catch (err => console.log(err))
             }
         
         function yearList() {
-            
+            let year = {
+                'year' : e.target.year.value
+            }
+            let options = {
+                method: 'POST',
+                body: JSON.stringify(year),
+                headers: {
+                    'content-type': 'application/json',
+                    'Authorization': `Bearer 123456789`
+                }
+            }
+            fetch(`http://localhost:9000/api/year-list`, options)
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(e => Promise.reject(e))
+                    }
+                    return res.json()
+                })
+                .then(res => {
+                    console.log(res)
+                    this.context.setResults(res)
+                })
+                .catch(err => console.log(err))
+            }
+        
+        function specificBook() {
+            let book = {
+                'award' : e.target.award.value,
+                'year' : e.target.year.value
+            }
+            let options = {
+                method: 'POST',
+                body: JSON.stringify(book),
+                headers: {
+                    'content-type' : 'application/json',
+                    'Authorization' : 'Bearer 123456789'
+                }
+            }
+            fetch(`http://localhost:9000/api/specific-book`, options)
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(e => Promise.reject(e))
+                    }
+                    return res.json()
+                })
+                .then(res => {
+                    console.log(res)
+                    this.context.setResults(res)
+                })
+                .catch(err => console.log(err))
         }
-        //render logic//
-            //if just award list...
-            //if year selected...
-            //if both award and year selected...
-        awardList()
+        
+        //if just award list...
+        if (!e.target.award.value && !e.target.year.value) return alert('select something')
+        if (e.target.award.value && !e.target.year.value) {
+            awardList()
+        }
+        //if year selected...
+        if (!e.target.award.value && e.target.year.value) {
+            yearList()
+        }
+        //if both award and year selected...
+        if (e.target.award.value && e.target.year.value) {
+            specificBook()
+        } 
     }
 
 /*
@@ -123,10 +181,10 @@ export default class BookSearch extends React.Component {
                 return res.json()
             })
             .then(res => {
-                console.log(res[0])
+                console.log(res)
                 this.context.setResults(res)
             })
-            .catch ( err => console.log(err))
+            .catch (err => console.log(err))
     }
         
 /*
@@ -155,7 +213,7 @@ export default class BookSearch extends React.Component {
                         <h3>Award Lists</h3>
                             <input
                                 type="radio"
-                                name="award list"
+                                name="award"
                                 id="The Booker Prize"
                                 value="The Booker Prize"
                             />
@@ -165,7 +223,7 @@ export default class BookSearch extends React.Component {
                         <br />
                             <input
                                 type="radio"
-                                name="award list"
+                                name="award"
                                 id="National Book Award for Fiction"
                                 value="National Book Award for Fiction"
                             />
@@ -175,7 +233,7 @@ export default class BookSearch extends React.Component {
                         <br />
                             <input
                                 type="radio"
-                                name="award list"
+                                name="award"
                                 id="The Pultizer Prize for Fiction"
                                 value="The Pultizer Prize for Fiction"
                             />
@@ -190,7 +248,7 @@ export default class BookSearch extends React.Component {
                         <label htmlFor="year">
                             Choose a year
                             <select name="year" id="year">
-                                <option value="optional"></option>
+                                <option value=""></option>
                                 <option value="2020">2020</option>
                                 <option value="2019">2019</option>
                                 <option value="2018">2018</option>
