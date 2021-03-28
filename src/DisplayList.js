@@ -6,9 +6,7 @@ export default class DisplayList extends React.Component {
     static contextType = BestBooksContext
 
     render() {
-        console.log(this.context.results)
          if (this.context.results.length === 0) {
-            console.log('empty')
             return (
                 <div>
                     <p>push a button</p>

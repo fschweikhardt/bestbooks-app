@@ -7,7 +7,7 @@ export default class BookSearch extends React.Component {
 
     state = {
         years: [],
-        awards: []
+        // awards: []
     }
 
     componentDidMount() {
@@ -35,22 +35,22 @@ export default class BookSearch extends React.Component {
             })
             .catch (err => console.log(err))
 
-        fetch(`http://localhost:9000/api/get-awards`, options)
-            .then( res => {
-                if (!res.ok) {
-                    return res.json().then(e => Promise.reject(e))
-                }
-                return res.json()
-            })
-            .then(res => {
-                let newAwards = res.map(x => x.award)
-                const distinctAwards = [...new Set(newAwards)]
-                this.context.setAwards(distinctAwards)
-                this.setState({
-                    awards: distinctAwards
-                })
-            })
-            .catch (err => console.log(err))
+        // fetch(`http://localhost:9000/api/get-awards`, options)
+        //     .then(res => {
+        //         if (!res.ok) {
+        //             return res.json().then(e => Promise.reject(e))
+        //         }
+        //         return res.json()
+        //     })
+        //     .then(res => {
+        //         let newAwards = res.map(x => x.award)
+        //         const distinctAwards = [...new Set(newAwards)]
+        //         this.context.setAwards(distinctAwards)
+        //         this.setState({
+        //             awards: distinctAwards
+        //         })
+        //     })
+        //     .catch(err => console.log(err))
     }
 
     getRandomBook = e => {
@@ -263,7 +263,7 @@ export default class BookSearch extends React.Component {
        // const distinctAwards = [...new Set(newAwards)]
         
         //Map award lists
-        const awardOptions = this.state.awards.map(award => {
+        const awardOptions = this.context.awards.map(award => {
             return (
                 <label htmlFor={award} key={award}>
                     <br />

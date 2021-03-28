@@ -18,18 +18,38 @@ class App extends React.Component {
     })
   }
 
-  handleSetAwards = setData => {
-    this.setState({
-      awards: setData
-    })
-  }
+  componentDidMount() {
+    const options = {
+        method: 'GET',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': 'Bearer 123456789'
+        }
+    }
+    
+    fetch(`http://localhost:9000/api/get-awards`, options)
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            }
+            return res.json()
+        })
+        .then(res => {
+            let newAwards = res.map(x => x.award)
+            const distinctAwards = [...new Set(newAwards)]
+            // this.context.setAwards(distinctAwards)
+            this.setState({
+                awards: distinctAwards
+            })
+        })
+        .catch(err => console.log(err))
+}
 
   render() {
     const value = {
       results: this.state.results,
       setResults: this.handleSetResults,
-      awards: this.state.awards,
-      setAwards: this.handleSetAwards
+      awards: this.state.awards
     }
 
     console.log(this.state.results)
