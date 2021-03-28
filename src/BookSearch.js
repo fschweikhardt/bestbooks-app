@@ -1,13 +1,12 @@
 import React from 'react'
+import config from './config'
 import BestBooksContext from './BestBooksContext'
-// import { API_ENDPOINT, API_TOKEN } from './config'
 
 export default class BookSearch extends React.Component {
     static contextType = BestBooksContext
 
     state = {
         years: [],
-        // awards: []
     }
 
     componentDidMount() {
@@ -15,11 +14,11 @@ export default class BookSearch extends React.Component {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
-                'Authorization': 'Bearer 123456789'
+                'Authorization': `Bearer ${config.API_TOKEN}`
             }
         }
         
-        fetch(`http://localhost:9000/api/get-years`, options)
+        fetch(`${config.API_BASE_URL}/api/get-years`, options)
             .then( res => {
                 if (!res.ok) {
                     return res.json().then(e => Promise.reject(e))
@@ -34,23 +33,6 @@ export default class BookSearch extends React.Component {
                 })
             })
             .catch (err => console.log(err))
-
-        // fetch(`http://localhost:9000/api/get-awards`, options)
-        //     .then(res => {
-        //         if (!res.ok) {
-        //             return res.json().then(e => Promise.reject(e))
-        //         }
-        //         return res.json()
-        //     })
-        //     .then(res => {
-        //         let newAwards = res.map(x => x.award)
-        //         const distinctAwards = [...new Set(newAwards)]
-        //         this.context.setAwards(distinctAwards)
-        //         this.setState({
-        //             awards: distinctAwards
-        //         })
-        //     })
-        //     .catch(err => console.log(err))
     }
 
     getRandomBook = e => {
@@ -61,11 +43,11 @@ export default class BookSearch extends React.Component {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',
-                'Authorization': 'Bearer 123456789'
+                'Authorization': `Bearer ${config.API_TOKEN}`
             }
         }
         
-        fetch(`http://localhost:9000/api/random-book`, options)
+        fetch(`${config.API_BASE_URL}/api/random-book`, options)
             .then( res => {
                 if (!res.ok) {
                     return res.json().then(e => Promise.reject(e))
@@ -94,10 +76,10 @@ export default class BookSearch extends React.Component {
                     body: JSON.stringify(award),
                     headers: {
                         'content-type': 'application/json',
-                        'Authorization': 'Bearer 123456789'
+                        'Authorization': `Bearer ${config.API_TOKEN}`
                     }
                 }
-                fetch(`http://localhost:9000/api/award-list`, options)
+                fetch(`${config.API_BASE_URL}/api/award-list`, options)
                     .then(res => {
                         if (!res.ok) {
                             return res.json().then(e => Promise.reject(e))
@@ -121,10 +103,10 @@ export default class BookSearch extends React.Component {
                     body: JSON.stringify(year),
                     headers: {
                         'content-type': 'application/json',
-                        'Authorization': `Bearer 123456789`
+                        'Authorization': `Bearer ${config.API_TOKEN}`
                     }
                 }
-                fetch(`http://localhost:9000/api/year-list`, options)
+                fetch(`${config.API_BASE_URL}/api/year-list`, options)
                     .then(res => {
                         if (!res.ok) {
                             return res.json().then(e => Promise.reject(e))
@@ -149,10 +131,10 @@ export default class BookSearch extends React.Component {
                     body: JSON.stringify(book),
                     headers: {
                         'content-type' : 'application/json',
-                        'Authorization' : 'Bearer 123456789'
+                        'Authorization': `Bearer ${config.API_TOKEN}`
                     }
                 }
-                fetch(`http://localhost:9000/api/specific-book`, options)
+                fetch(`${config.API_BASE_URL}/api/specific-book`, options)
                     .then(res => {
                         if (!res.ok) {
                             return res.json().then(e => Promise.reject(e))
@@ -224,9 +206,7 @@ export default class BookSearch extends React.Component {
             console.log(filtered)
             this.context.setResults(filtered)
         }
-*/
- 
-/*
+
         // get all books from  Data
         let Data = DATA
         let awards = Object.keys(Data)
@@ -242,12 +222,6 @@ export default class BookSearch extends React.Component {
 */
 
     render() {
-       // console.log(`${config.API_ENDPOINT}, ${config.API_TOKEN}`, config.API_ENDPOINT, config.API_TOKEN)
-        
-        //------> YEARS
-        // let years = this.state.years
-        // let newYears = years.map( x => x.year)
-        // const distinctYears = [...new Set(newYears)]
         
         const yearOptions = this.state.years.map(year => {
             return (
@@ -257,12 +231,6 @@ export default class BookSearch extends React.Component {
             )
         })
         
-        //-----> AWARDS
-       // let awards = this.state.awards
-       // let newAwards = awards.map(x => x.award)
-       // const distinctAwards = [...new Set(newAwards)]
-        
-        //Map award lists
         const awardOptions = this.context.awards.map(award => {
             return (
                 <label htmlFor={award} key={award}>

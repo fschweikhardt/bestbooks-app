@@ -1,5 +1,6 @@
 import React from 'react'
 import './App.css'
+import config from './config'
 import BestBooksContext from './BestBooksContext'
 import LandingPage from './LandingPage'  
 import BookSearch from './BookSearch'
@@ -23,11 +24,11 @@ class App extends React.Component {
         method: 'GET',
         headers: {
             'content-type': 'application/json',
-            'Authorization': 'Bearer 123456789'
+            'Authorization': `Bearer ${config.API_TOKEN}`
         }
     }
     
-    fetch(`http://localhost:9000/api/get-awards`, options)
+    fetch(`${config.API_BASE_URL}/api/get-awards`, options)
         .then(res => {
             if (!res.ok) {
                 return res.json().then(e => Promise.reject(e))
@@ -37,7 +38,6 @@ class App extends React.Component {
         .then(res => {
             let newAwards = res.map(x => x.award)
             const distinctAwards = [...new Set(newAwards)]
-            // this.context.setAwards(distinctAwards)
             this.setState({
                 awards: distinctAwards
             })
