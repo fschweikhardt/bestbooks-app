@@ -27,8 +27,10 @@ export default class BookSearch extends React.Component {
                 return res.json()
             })
             .then(res => {
+                let newYears = res.map( x => x.year)
+                const distinctYears = [...new Set(newYears)]
                 this.setState({
-                    years: res
+                    years: distinctYears
                 })
             })
             .catch (err => console.log(err))
@@ -41,8 +43,11 @@ export default class BookSearch extends React.Component {
                 return res.json()
             })
             .then(res => {
+                let newAwards = res.map(x => x.award)
+                const distinctAwards = [...new Set(newAwards)]
+                this.context.setAwards(distinctAwards)
                 this.setState({
-                    awards: res
+                    awards: distinctAwards
                 })
             })
             .catch (err => console.log(err))
@@ -238,17 +243,41 @@ export default class BookSearch extends React.Component {
 
     render() {
        // console.log(`${config.API_ENDPOINT}, ${config.API_TOKEN}`, config.API_ENDPOINT, config.API_TOKEN)
-        let years = this.state.years
-        let newYears = years.map( x => x.year)
-        const distinctYears = [...new Set(newYears)]
-        console.log(distinctYears)
         
-        //console.log(this.state.awards)
-        let awards = this.state.awards
-        let newAwards = awards.map(x => x.award)
-        const distinctAwards = [...new Set(newAwards)]
-        console.log(distinctAwards)
-
+        //------> YEARS
+        // let years = this.state.years
+        // let newYears = years.map( x => x.year)
+        // const distinctYears = [...new Set(newYears)]
+        
+        const yearOptions = this.state.years.map(year => {
+            return (
+                <option key={year} value={year}>
+                    {year}
+                </option>
+            )
+        })
+        
+        //-----> AWARDS
+       // let awards = this.state.awards
+       // let newAwards = awards.map(x => x.award)
+       // const distinctAwards = [...new Set(newAwards)]
+        
+        //Map award lists
+        const awardOptions = this.state.awards.map(award => {
+            return (
+                <label htmlFor={award} key={award}>
+                    <br />
+                    <input
+                        type="radio"
+                        name="award"
+                        id={award}
+                        value={award}
+                    />
+                    {award}
+                </label>
+            )
+        })
+            
         return (
             <div>
                 <hr />
@@ -256,35 +285,7 @@ export default class BookSearch extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <h3>Award Lists</h3>
-                            <input
-                                type="radio"
-                                name="award"
-                                id="The Booker Prize"
-                                value="The Booker Prize"
-                            />
-                            <label htmlFor="The Booker Prize">
-                            The Booker Prize
-                            </label>
-                        <br />
-                            <input
-                                type="radio"
-                                name="award"
-                                id="National Book Award for Fiction"
-                                value="National Book Award for Fiction"
-                            />
-                            <label htmlFor="National Book Award for Fiction">
-                            National Book Award for Fiction
-                            </label>
-                        <br />
-                            <input
-                                type="radio"
-                                name="award"
-                                id="The Pultizer Prize for Fiction"
-                                value="The Pultizer Prize for Fiction"
-                            />
-                            <label htmlFor="The Pultizer Prize for Fiction">
-                            The Pultizer Prize for Fiction
-                            </label>
+                        {awardOptions}
                         <br />
                     </div>
                     <p>and/or</p>
@@ -293,10 +294,8 @@ export default class BookSearch extends React.Component {
                         <label htmlFor="year">
                             Choose a year
                             <select name="year" id="year">
-                                <option value=""></option>
-                                <option value="2020">2020</option>
-                                <option value="2019">2019</option>
-                                <option value="2018">2018</option>
+                            <option key='0' defaultValue=''></option>
+                                {yearOptions}
                             </select>
                         </label>
                     </div>

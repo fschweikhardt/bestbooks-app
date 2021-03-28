@@ -5,9 +5,7 @@ export default class AwardInfo extends React.Component {
     static contextType = BestBooksContext
     
     render() {
-        // console.log(this.context.results[0])
-        // let rando = this.context.results[0]
-        
+            console.log(this.context.awards)
         return (
             <div>
                 <hr />

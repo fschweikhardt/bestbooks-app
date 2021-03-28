@@ -8,7 +8,8 @@ import AwardInfo from './AwardInfo'
 
 class App extends React.Component {
   state = {
-    results: []
+    results: [],
+    awards: []
   }
 
   handleSetResults = setData => {
@@ -17,14 +18,23 @@ class App extends React.Component {
     })
   }
 
+  handleSetAwards = setData => {
+    this.setState({
+      awards: setData
+    })
+  }
+
   render() {
     const value = {
       results: this.state.results,
-      setResults: this.handleSetResults
+      setResults: this.handleSetResults,
+      awards: this.state.awards,
+      setAwards: this.handleSetAwards
     }
 
     console.log(this.state.results)
-    
+    console.log(this.state.awards)
+
     return (
       <BestBooksContext.Provider value={value}>
         <div>

@@ -2,7 +2,9 @@ import React from 'react'
 
 const BestBooksContext = React.createContext({
     results: [],
-    setResults: () => {}
+    setResults: () => {},
+    awards: [],
+    setAwards: () => {}
 })
 
 export default BestBooksContext
