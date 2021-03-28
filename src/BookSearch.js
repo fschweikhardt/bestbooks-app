@@ -5,6 +5,59 @@ import BestBooksContext from './BestBooksContext'
 export default class BookSearch extends React.Component {
     static contextType = BestBooksContext
 
+    submitYear = e => {
+        e.preventDefault()
+            let year = {
+                'year' : 1989
+            }
+            let options = {
+                method: 'POST',
+                body: JSON.stringify(year),
+                headers: {
+                    'content-type': 'application/json',
+                    'Authorization': `Bearer 123456789`
+                }
+            }
+            fetch(`http://localhost:9000/api/year-list`, options)
+                .then(res => {
+                    if (!res.ok) {
+                        return res.json().then(e => Promise.reject(e))
+                    }
+                    return res.json()
+                })
+                .then(res => {
+                    console.log(res)
+                    this.context.setResults(res)
+                })
+                .catch(err => console.log(err))
+    }
+
+    getRandomBook = e => {
+        e.preventDefault()
+        console.log('random book clicked')
+        
+        const options = {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': 'Bearer 123456789'
+            }
+        }
+        
+        fetch(`http://localhost:9000/api/random-book`, options)
+            .then( res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json()
+            })
+            .then(res => {
+                console.log([res])
+                this.context.setResults([res])
+            })
+            .catch (err => console.log(err))
+    }
+
     handleSubmit = e => {
         e.preventDefault()
 
@@ -55,7 +108,9 @@ export default class BookSearch extends React.Component {
                 })
                 .then(res => {
                     console.log(res)
-                    this.context.setResults(res)
+                    let newData = res
+                    console.log(newData)
+                    //this.context.setResults(res)
                 })
                 .catch(err => console.log(err))
             }
@@ -86,17 +141,18 @@ export default class BookSearch extends React.Component {
                 })
                 .catch(err => console.log(err))
         }
-        
-        //if just award list...
+
+        //render logic//
+            //if just award list...
+            //if year selected...
+            //if both award and year selected...
         if (!e.target.award.value && !e.target.year.value) return alert('select something')
         if (e.target.award.value && !e.target.year.value) {
             awardList()
         }
-        //if year selected...
         if (!e.target.award.value && e.target.year.value) {
             yearList()
         }
-        //if both award and year selected...
         if (e.target.award.value && e.target.year.value) {
             specificBook()
         } 
@@ -160,33 +216,7 @@ export default class BookSearch extends React.Component {
             this.context.setResults(filtered)
         }
 */
-
-    getRandomBook = e => {
-        e.preventDefault()
-        console.log('random book clicked')
-        
-        const options = {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                'Authorization': 'Bearer 123456789'
-            }
-        }
-        
-        fetch(`http://localhost:9000/api/random-book`, options)
-            .then( res => {
-                if (!res.ok) {
-                    return res.json().then(e => Promise.reject(e))
-                }
-                return res.json()
-            })
-            .then(res => {
-                console.log(res)
-                this.context.setResults(res)
-            })
-            .catch (err => console.log(err))
-    }
-        
+ 
 /*
         // get all books from  Data
         let Data = DATA
@@ -271,6 +301,13 @@ export default class BookSearch extends React.Component {
                         Submit
                     </button>
                 </form>
+                    <p>TEST</p>
+                    <button 
+                        type='button' 
+                        onClick={this.submitYear}
+                    >
+                        submit year test
+                    </button>
                 <p>or</p>
                 <div>
                     <h2>Random book generator</h2>

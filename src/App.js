@@ -3,17 +3,12 @@ import './App.css'
 import BestBooksContext from './BestBooksContext'
 import LandingPage from './LandingPage'  
 import BookSearch from './BookSearch'
-// import DisplayList from './DisplayList'
+import DisplayList from './DisplayList'
 import AwardInfo from './AwardInfo'
 
 class App extends React.Component {
-  static contextType = BestBooksContext
-  
-  constructor(props) {
-    super(props)
-      this.state = {
-      results: []
-    }
+  state = {
+    results: ''
   }
 
   handleSetResults = setData => {
@@ -43,7 +38,7 @@ class App extends React.Component {
           <main>
             <LandingPage />
             <BookSearch />
-            {/* <DisplayList /> */}
+            <DisplayList />
             <AwardInfo />
           </main>
           <footer><hr />Created by Frank Schweikhardt. All rights reserved. Copywrite 2021</footer>
