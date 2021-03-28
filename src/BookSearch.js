@@ -5,6 +5,49 @@ import BestBooksContext from './BestBooksContext'
 export default class BookSearch extends React.Component {
     static contextType = BestBooksContext
 
+    state = {
+        years: [],
+        awards: []
+    }
+
+    componentDidMount() {
+        const options = {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+                'Authorization': 'Bearer 123456789'
+            }
+        }
+        
+        fetch(`http://localhost:9000/api/get-years`, options)
+            .then( res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json()
+            })
+            .then(res => {
+                this.setState({
+                    years: res
+                })
+            })
+            .catch (err => console.log(err))
+
+        fetch(`http://localhost:9000/api/get-awards`, options)
+            .then( res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json()
+            })
+            .then(res => {
+                this.setState({
+                    awards: res
+                })
+            })
+            .catch (err => console.log(err))
+    }
+
     getRandomBook = e => {
         e.preventDefault()
         console.log('random book clicked')
@@ -195,6 +238,17 @@ export default class BookSearch extends React.Component {
 
     render() {
        // console.log(`${config.API_ENDPOINT}, ${config.API_TOKEN}`, config.API_ENDPOINT, config.API_TOKEN)
+        let years = this.state.years
+        let newYears = years.map( x => x.year)
+        const distinctYears = [...new Set(newYears)]
+        console.log(distinctYears)
+        
+        //console.log(this.state.awards)
+        let awards = this.state.awards
+        let newAwards = awards.map(x => x.award)
+        const distinctAwards = [...new Set(newAwards)]
+        console.log(distinctAwards)
+
         return (
             <div>
                 <hr />
