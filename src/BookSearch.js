@@ -5,33 +5,6 @@ import BestBooksContext from './BestBooksContext'
 export default class BookSearch extends React.Component {
     static contextType = BestBooksContext
 
-    submitYear = e => {
-        e.preventDefault()
-            let year = {
-                'year' : 1989
-            }
-            let options = {
-                method: 'POST',
-                body: JSON.stringify(year),
-                headers: {
-                    'content-type': 'application/json',
-                    'Authorization': `Bearer 123456789`
-                }
-            }
-            fetch(`http://localhost:9000/api/year-list`, options)
-                .then(res => {
-                    if (!res.ok) {
-                        return res.json().then(e => Promise.reject(e))
-                    }
-                    return res.json()
-                })
-                .then(res => {
-                    console.log(res)
-                    this.context.setResults(res)
-                })
-                .catch(err => console.log(err))
-    }
-
     getRandomBook = e => {
         e.preventDefault()
         console.log('random book clicked')
@@ -61,100 +34,88 @@ export default class BookSearch extends React.Component {
     handleSubmit = e => {
         e.preventDefault()
 
-        function awardList() {
-            let award = {
-                'award' : e.target.award.value
-            }
-            let options = {
-                method: 'POST',
-                body: JSON.stringify(award),
-                headers: {
-                    'content-type': 'application/json',
-                    'Authorization': 'Bearer 123456789'
-                }
-            }
-            fetch(`http://localhost:9000/api/award-list`, options)
-                .then(res => {
-                    if (!res.ok) {
-                        return res.json().then(e => Promise.reject(e))
-                    }
-                    return res.json()
-                })
-                .then(data => {
-                    console.log(data)
-                    this.context.setResults(data)
-                })
-                .catch (err => console.log(err))
-            }
-        
-        function yearList() {
-            let year = {
-                'year' : e.target.year.value
-            }
-            let options = {
-                method: 'POST',
-                body: JSON.stringify(year),
-                headers: {
-                    'content-type': 'application/json',
-                    'Authorization': `Bearer 123456789`
-                }
-            }
-            fetch(`http://localhost:9000/api/year-list`, options)
-                .then(res => {
-                    if (!res.ok) {
-                        return res.json().then(e => Promise.reject(e))
-                    }
-                    return res.json()
-                })
-                .then(res => {
-                    console.log(res)
-                    let newData = res
-                    console.log(newData)
-                    //this.context.setResults(res)
-                })
-                .catch(err => console.log(err))
-            }
-        
-        function specificBook() {
-            let book = {
-                'award' : e.target.award.value,
-                'year' : e.target.year.value
-            }
-            let options = {
-                method: 'POST',
-                body: JSON.stringify(book),
-                headers: {
-                    'content-type' : 'application/json',
-                    'Authorization' : 'Bearer 123456789'
-                }
-            }
-            fetch(`http://localhost:9000/api/specific-book`, options)
-                .then(res => {
-                    if (!res.ok) {
-                        return res.json().then(e => Promise.reject(e))
-                    }
-                    return res.json()
-                })
-                .then(res => {
-                    console.log(res)
-                    this.context.setResults(res)
-                })
-                .catch(err => console.log(err))
-        }
-
-        //render logic//
-            //if just award list...
-            //if year selected...
-            //if both award and year selected...
         if (!e.target.award.value && !e.target.year.value) return alert('select something')
+
         if (e.target.award.value && !e.target.year.value) {
-            awardList()
+            
+                let award = {
+                    'award' : e.target.award.value
+                }
+                let options = {
+                    method: 'POST',
+                    body: JSON.stringify(award),
+                    headers: {
+                        'content-type': 'application/json',
+                        'Authorization': 'Bearer 123456789'
+                    }
+                }
+                fetch(`http://localhost:9000/api/award-list`, options)
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(e => Promise.reject(e))
+                        }
+                        return res.json()
+                    })
+                    .then(res => {
+                        console.log(res)
+                        this.context.setResults(res)
+                    })
+                    .catch (err => console.log(err))
+
         }
         if (!e.target.award.value && e.target.year.value) {
-            yearList()
+
+                let year = {
+                    'year' : e.target.year.value
+                }
+                let options = {
+                    method: 'POST',
+                    body: JSON.stringify(year),
+                    headers: {
+                        'content-type': 'application/json',
+                        'Authorization': `Bearer 123456789`
+                    }
+                }
+                fetch(`http://localhost:9000/api/year-list`, options)
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(e => Promise.reject(e))
+                        }
+                        return res.json()
+                    })
+                    .then(res => {
+                        console.log([res])
+                        this.context.setResults(res)
+                    })
+                    .catch(err => console.log(err))
         }
+
         if (e.target.award.value && e.target.year.value) {
-            specificBook()
+
+                let book = {
+                    'award' : e.target.award.value,
+                    'year' : e.target.year.value
+                }
+                let options = {
+                    method: 'POST',
+                    body: JSON.stringify(book),
+                    headers: {
+                        'content-type' : 'application/json',
+                        'Authorization' : 'Bearer 123456789'
+                    }
+                }
+                fetch(`http://localhost:9000/api/specific-book`, options)
+                    .then(res => {
+                        if (!res.ok) {
+                            return res.json().then(e => Promise.reject(e))
+                        }
+                        return res.json()
+                    })
+                    .then(res => {
+                        console.log([res])
+                        this.context.setResults([res])
+                    })
+                    .catch(err => console.log(err))
         } 
     }
 
@@ -285,29 +246,10 @@ export default class BookSearch extends React.Component {
                             </select>
                         </label>
                     </div>
-                    {/* <div>
-                        <h3>Author</h3>
-                        <label htmlFor="author">
-                            Seach by Author
-                            <input 
-                                type="search" 
-                                name="author"
-                                id="author" 
-                                defaultValue="dan"
-                            />
-                        </label>
-                    </div> */}
                     <button type="submit">
                         Submit
                     </button>
                 </form>
-                    <p>TEST</p>
-                    <button 
-                        type='button' 
-                        onClick={this.submitYear}
-                    >
-                        submit year test
-                    </button>
                 <p>or</p>
                 <div>
                     <h2>Random book generator</h2>

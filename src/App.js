@@ -8,7 +8,7 @@ import AwardInfo from './AwardInfo'
 
 class App extends React.Component {
   state = {
-    results: ''
+    results: []
   }
 
   handleSetResults = setData => {
