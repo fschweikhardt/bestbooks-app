@@ -26,6 +26,7 @@ export default class BookSearch extends React.Component {
                 return res.json()
             })
             .then(res => {
+                console.log(res)
                 let newYears = res.map( x => x.year)
                 const distinctYears = [...new Set(newYears)]
                 this.setState({
@@ -230,7 +231,7 @@ export default class BookSearch extends React.Component {
                 </option>
             )
         })
-        
+
         const awardOptions = this.context.awards.map(award => {
             return (
                 <label htmlFor={award} key={award}>
