@@ -27,11 +27,11 @@ export default class BookSearch extends React.Component {
             })
             .then(res => {
                 console.log(res)
-                let newYears = res.map( x => x.year)
-                const distinctYears = [...new Set(newYears)]
-                this.setState({
-                    years: distinctYears
-                })
+                // let newYears = res.map( x => x.year)
+                // const distinctYears = [...new Set(newYears)]
+                // this.setState({
+                //     years: distinctYears
+                // })
             })
             .catch (err => console.log(err))
     }
