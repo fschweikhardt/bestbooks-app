@@ -40,9 +40,9 @@ class App extends React.Component {
             let newAwards = res.map(x => x.award)
             const distinctAwards = [...new Set(newAwards)]
             console.log(distinctAwards)
-            // this.setState({
-            //     awards: distinctAwards
-            // })
+            this.setState({
+                awards: distinctAwards
+            })
         })
         .catch(err => console.log(err))
 }
