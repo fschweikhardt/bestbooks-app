@@ -7,6 +7,14 @@ export default class BookSearch extends React.Component {
 
     state = {
         years: [],
+        awardSelected: ''
+    }
+
+    setAwardSelected = v => {
+        console.log(v.target.value)
+        this.setState({
+            awardSelected: v.target.value
+        })
     }
 
     componentDidMount() {
@@ -146,6 +154,8 @@ export default class BookSearch extends React.Component {
     }
 
     render() {
+
+        console.log(this.state.awardSelected)
         
         const yearOptions = this.state.years.map(year => {
             return (
@@ -157,16 +167,28 @@ export default class BookSearch extends React.Component {
 
         const awardOptions = this.context.awards.map(award => {
             return (
-                <label htmlFor={award} key={award}>
-                    <br />
-                    <input
-                        type="radio"
-                        name="award"
-                        id={award}
-                        value={award}
-                    />
-                    {award}
-                </label>
+                <li 
+                    key={award}
+                    style={{marginTop:'20px', marginBottom:'20px'}}
+                    onClick={award => this.setAwardSelected(award)}
+                >
+                    <label 
+                        htmlFor={award} 
+                        key={award}
+                        style={{
+                            fontSize: '24px',
+                            backgroundColor: 'lightgray'
+                        }}
+                    >
+                        <input
+                            type="radio"
+                            name="award"
+                            id={award}
+                            value={award}
+                        />
+                        {award}
+                    </label>
+               </li>
             )
         })
             
@@ -177,6 +199,8 @@ export default class BookSearch extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <h3>Award Lists</h3>
+                        <h2>Selected: {this.state.awardSelected}</h2>
+                        <br />
                         {awardOptions}
                         <br />
                     </div>

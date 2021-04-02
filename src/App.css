@@ -23,6 +23,18 @@ button {
   margin: 10px;
 }
 
+input {
+  visibility: hidden;
+}
+
+/* label {
+  cursor: pointer;
+}
+
+input:checked  {
+    background: red;
+} */
+
 h1 {
   font-size: 26px;
 }
@@ -36,5 +48,5 @@ h3 {
 }
 
 li {
-  list-style-type: none;
+  list-style: none;
 }
