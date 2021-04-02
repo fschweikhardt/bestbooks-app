@@ -2,7 +2,8 @@ import React from 'react'
 import './App.css'
 import config from './config'
 import BestBooksContext from './BestBooksContext'
-import LandingPage from './LandingPage'  
+import LandingPage from './LandingPage' 
+import GetRandomBook from './GetRandomBook' 
 import BookSearch from './BookSearch'
 import DisplayList from './DisplayList'
 import AwardInfo from './AwardInfo'
@@ -67,6 +68,8 @@ class App extends React.Component {
           </header>
           <main>
             <LandingPage />
+            <GetRandomBook />
+            <DisplayList />
             <BookSearch />
             <DisplayList />
             <AwardInfo />

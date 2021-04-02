@@ -43,30 +43,30 @@ export default class BookSearch extends React.Component {
             .catch (err => console.log(err))
     }
 
-    getRandomBook = e => {
-        e.preventDefault()
+    // getRandomBook = e => {
+    //     e.preventDefault()
         
-        const options = {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-                'Authorization': `Bearer ${config.API_TOKEN}`
-            }
-        }
+    //     const options = {
+    //         method: 'GET',
+    //         headers: {
+    //             'content-type': 'application/json',
+    //             'Authorization': `Bearer ${config.API_TOKEN}`
+    //         }
+    //     }
         
-        fetch(`${config.API_BASE_URL}/api/random-book`, options)
-            .then( res => {
-                if (!res.ok) {
-                    return res.json().then(e => Promise.reject(e))
-                }
-                return res.json()
-            })
-            .then(res => {
-                console.log([res])
-                this.context.setResults([res])
-            })
-            .catch (err => console.log(err))
-    }
+    //     fetch(`${config.API_BASE_URL}/api/random-book`, options)
+    //         .then( res => {
+    //             if (!res.ok) {
+    //                 return res.json().then(e => Promise.reject(e))
+    //             }
+    //             return res.json()
+    //         })
+    //         .then(res => {
+    //             console.log([res])
+    //             this.context.setResults([res])
+    //         })
+    //         .catch (err => console.log(err))
+    // }
 
     handleSubmit = e => {
         e.preventDefault()
@@ -219,7 +219,7 @@ export default class BookSearch extends React.Component {
                         Submit
                     </button>
                 </form>
-                <p>or</p>
+                {/* <p>or</p>
                 <div>
                     <h2>Random book generator</h2>
                     <button 
@@ -228,7 +228,7 @@ export default class BookSearch extends React.Component {
                         >
                         Get Random Book
                     </button>
-                </div>
+                </div> */}
             </div>
         )
     }
