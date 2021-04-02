@@ -2,10 +2,9 @@ import React from 'react'
 
 export default function Book (props) {
     return (
-        <div>
-            <br/>
+        <div style={{margin: '20px', border: 'dotted', borderColor:'lightgray'}}>
             <h1 style={{fontSize: '28px'}}>{props.award}</h1>
-                <hr style={{padding: 0}}/>
+                <hr style={{marginLeft: '50px', marginRight: '50px'}}/>
                 <h1 style={{
                     fontSize: '28px',
                     fontStyle:'italic',

@@ -7,13 +7,21 @@ export default class BookSearch extends React.Component {
 
     state = {
         years: [],
-        awardSelected: ''
+        awardSelected: '',
+        yearSelected: ''
     }
 
     setAwardSelected = v => {
         console.log(v.target.value)
         this.setState({
             awardSelected: v.target.value
+        })
+    }
+
+    setYearSelected = v => {
+        console.log(v.target.value)
+        this.setState({
+            yearSelected: v.target.value
         })
     }
 
@@ -195,6 +203,10 @@ export default class BookSearch extends React.Component {
         return (
             <div>
                 <hr />
+                <h1 style={{fontStyle:'italic', fontWeight:'bold', fontSize:'30px'}}>
+                    *     OR     *
+                </h1>
+                <hr />
                 <h1>Book Search</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
@@ -204,31 +216,23 @@ export default class BookSearch extends React.Component {
                         {awardOptions}
                         <br />
                     </div>
+                    <h2>Award Selected: {this.state.awardSelected}</h2>
                     <p>and/or</p>
                     <div>
                         <h3>Year</h3>
                         <label htmlFor="year">
                             Choose a year
-                            <select name="year" id="year">
+                            <select name="year" id="year" onChange={this.setYearSelected}>
                             <option key='0' defaultValue=''></option>
                                 {yearOptions}
                             </select>
                         </label>
+                        <h2>Year Selected: {this.state.yearSelected}</h2>
                     </div>
                     <button type="submit">
                         Submit
                     </button>
                 </form>
-                {/* <p>or</p>
-                <div>
-                    <h2>Random book generator</h2>
-                    <button 
-                        type="button"
-                        onClick={this.getRandomBook}
-                        >
-                        Get Random Book
-                    </button>
-                </div> */}
             </div>
         )
     }
