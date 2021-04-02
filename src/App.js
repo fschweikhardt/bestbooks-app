@@ -36,10 +36,8 @@ class App extends React.Component {
             return res.json()
         })
         .then(res => {
-            console.log(res)
             let newAwards = res.map(x => x.award)
             const distinctAwards = [...new Set(newAwards)]
-            console.log(distinctAwards)
             this.setState({
                 awards: distinctAwards
             })
