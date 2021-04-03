@@ -3,6 +3,7 @@ import './App.css'
 import config from './config'
 import BestBooksContext from './BestBooksContext'
 import LandingPage from './LandingPage' 
+import DisplayRandomBook from './DisplayRandomBook'
 import GetRandomBook from './GetRandomBook' 
 import BookSearch from './BookSearch'
 import DisplayList from './DisplayList'
@@ -11,12 +12,19 @@ import AwardInfo from './AwardInfo'
 class App extends React.Component {
   state = {
     results: [],
+    randomBook: [],
     awards: []
   }
 
   handleSetResults = setData => {
     this.setState({
       results: setData
+    })
+  }
+
+  handleSetRandomBook = setData => {
+    this.setState({
+      randomBook: setData
     })
   }
 
@@ -50,10 +58,13 @@ class App extends React.Component {
     const value = {
       results: this.state.results,
       setResults: this.handleSetResults,
-      awards: this.state.awards
+      setRandomBook: this.handleSetRandomBook,
+      awards: this.state.awards,
+      randomBook: this.state.randomBook
     }
 
     console.log(this.state.results)
+    console.log(this.state.randomBook)
     console.log(this.state.awards)
 
     return (
@@ -69,7 +80,7 @@ class App extends React.Component {
           <main>
             <LandingPage />
             <GetRandomBook />
-            <DisplayList />
+            <DisplayRandomBook />
             <BookSearch />
             <DisplayList />
             <AwardInfo />

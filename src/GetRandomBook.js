@@ -24,8 +24,8 @@ export default class GetRandomBook extends React.Component {
                 return res.json()
             })
             .then(res => {
-                console.log([res])
-                this.context.setResults([res])
+                console.log(res)
+                this.context.setRandomBook(res)
             })
             .catch (err => console.log(err))
     }

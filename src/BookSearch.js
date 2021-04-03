@@ -50,7 +50,7 @@ export default class BookSearch extends React.Component {
             })
             .catch (err => console.log(err))
     }
-    
+
     handleSubmit = e => {
         e.preventDefault()
 
@@ -139,7 +139,7 @@ export default class BookSearch extends React.Component {
     render() {
 
         console.log(this.state.awardSelected)
-        
+       
         const yearOptions = this.state.years.map(year => {
             return (
                 <option key={year} value={year}>
@@ -178,9 +178,17 @@ export default class BookSearch extends React.Component {
         return (
             <div>
                 <hr />
+                <br />
+                <p>Need help finding a great book to read? Then this app is for you. 
+                Sort through award winning books and learn more about the world's 
+                most prestigeous award lists.</p>
+                <br />
+                <h3>Click the "Get Random Book" Button Above</h3>
+                <br />
                 <h1 style={{fontStyle:'italic', fontWeight:'bold', fontSize:'30px'}}>
                     *     OR     *
                 </h1>
+                <br />
                 <hr />
                 <h1>Book Search</h1>
                 <form onSubmit={this.handleSubmit}>
