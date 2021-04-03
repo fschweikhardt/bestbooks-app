@@ -71,7 +71,7 @@ class App extends React.Component {
     return (
       <BestBooksContext.Provider value={value}>
         <div>
-          <header>
+          <header style={{fontSize:'12px'}}>
               “I shall be miserable if I have not an excellent library.” 
               – Jane Austen in <i>Pride and Prejudice</i> 
           <br/>
