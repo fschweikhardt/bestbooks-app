@@ -13,13 +13,27 @@ import AwardInfo from './AwardInfo'
 class App extends React.Component {
   state = {
     results: [],
+    awardResults: [],
     randomBook: [],
-    awards: []
+    awards: [],
+    displayAward: ''
   }
 
   handleSetResults = setData => {
     this.setState({
       results: setData
+    })
+  }
+
+  handleSetAwardResults = setData => {
+    this.setState({
+      awardResults: setData
+    })
+  }
+
+  handleSetDisplayAward = setData => {
+    this.setState({
+      displayAward: setData
     })
   }
 
@@ -58,13 +72,18 @@ class App extends React.Component {
   render() {
     const value = {
       results: this.state.results,
+      awardResults: this.state.awardResults,
       setResults: this.handleSetResults,
+      setAwardResults: this.handleSetAwardResults,
+      setDisplayAward: this.handleSetDisplayAward,
       setRandomBook: this.handleSetRandomBook,
       awards: this.state.awards,
-      randomBook: this.state.randomBook
+      randomBook: this.state.randomBook,
+      displayAward: this.state.displayAward
     }
 
     console.log(this.state.results)
+    console.log(this.state.awardResults)
     console.log(this.state.randomBook)
     console.log(this.state.awards)
 

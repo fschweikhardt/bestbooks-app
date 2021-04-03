@@ -1,25 +1,52 @@
 import React from 'react'
 import Book from './Book'
+import AwardBook from './AwardBook'
 import BestBooksContext from './BestBooksContext'
 
 export default class DisplayList extends React.Component {
     static contextType = BestBooksContext
 
     render() {
-         if (this.context.results.length === 0) {
+        console.log(this.context.displayAward)
+        const yearList = this.context.results
+        const awardList = this.context.awardResults
+        if (yearList.length === 0 && awardList.length === 0) {
             return (
                 <></>
             )
         }
-        return (
+        if (this.context.awardResults.length === 0) {
+            return (
+                <div>
+                    <hr />
+                    <div>
+                        <ul>
+                            {this.context.results.map( display => {
+                                return (
+                                <li key={display.title}>
+                                    <Book 
+                                        title={display.title}
+                                        author={display.author}
+                                        year={display.year}
+                                        award={display.award}
+                                    />
+                                </li>
+                            )})}
+                        </ul>
+                    </div>
+                </div>
+            )
+        }  return (
             <div>
-                <hr />
+                <hr />  
+                <br />
+                <h1>{this.context.displayAward} </h1>
                 <div>
                     <ul>
-                        {this.context.results.map( display => {
+                        {this.context.awardResults.map( display => {
                             return (
                             <li key={display.title}>
-                                <Book 
+                                <AwardBook 
                                     title={display.title}
                                     author={display.author}
                                     year={display.year}

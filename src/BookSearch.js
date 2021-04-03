@@ -11,15 +11,16 @@ export default class BookSearch extends React.Component {
         yearSelected: ''
     }
 
-    setAwardSelected = v => {
+    setAwardSelected = e => {
         this.setState({
-            awardSelected: v.target.value
+            awardSelected: e.target.value
         })
+        this.context.setDisplayAward(e.target.value)
     }
 
-    setYearSelected = v => {
+    setYearSelected = e => {
         this.setState({
-            yearSelected: v.target.value
+            yearSelected: e.target.value
         })
     }
 
@@ -75,7 +76,7 @@ export default class BookSearch extends React.Component {
                         return res.json()
                     })
                     .then(res => {
-                        this.context.setResults(res)
+                        this.context.setAwardResults(res)
                     })
                     .catch (err => console.log(err))
 
@@ -136,8 +137,6 @@ export default class BookSearch extends React.Component {
 
     render() {
 
-        console.log(this.state.awardSelected)
-       
         const yearOptions = this.state.years.map(year => {
             return (
                 <option key={year} value={year}>
