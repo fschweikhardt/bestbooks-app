@@ -6,7 +6,6 @@ export default class bookRandomBook extends React.Component {
     static contextType = BestBooksContext
 
     render() {
-        console.log(this.context.randomBook)
         const book = this.context.randomBook
 
          if (this.context.randomBook.length === 0) {

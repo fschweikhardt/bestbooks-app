@@ -12,14 +12,12 @@ export default class BookSearch extends React.Component {
     }
 
     setAwardSelected = v => {
-        console.log(v.target.value)
         this.setState({
             awardSelected: v.target.value
         })
     }
 
     setYearSelected = v => {
-        console.log(v.target.value)
         this.setState({
             yearSelected: v.target.value
         })
@@ -178,28 +176,33 @@ export default class BookSearch extends React.Component {
         return (
             <div>
                 <hr />
-                <h1>Book Search</h1>
+                <h1>Book Search by Award List and/or Year</h1>
                 <form onSubmit={this.handleSubmit}>
                     <div>
-                        <h3>Award Lists</h3>
-                        <h2>Selected: {this.state.awardSelected}</h2>
+                        <u><h2>Award Selected</h2></u>
+                        <h3>{this.state.awardSelected}</h3>
                         <br />
                         {awardOptions}
                         <br />
                     </div>
-                    <h2>Award Selected: {this.state.awardSelected}</h2>
+                    <u><h2>Award Selected</h2></u>
+                    <h3>{this.state.awardSelected}</h3>
+                    <br/>
                     <p>and/or</p>
+                    <br/>
                     <div>
-                        <h3>Year</h3>
                         <label htmlFor="year">
-                            Choose a year
+                            <h3>Choose a Year</h3>
                             <select name="year" id="year" onChange={this.setYearSelected}>
                             <option key='0' defaultValue=''></option>
                                 {yearOptions}
                             </select>
                         </label>
-                        <h2>Year Selected: {this.state.yearSelected}</h2>
+                        <br/>
                     </div>
+                    <br />
+                    <h2>Year Selected</h2>{this.state.yearSelected}
+                    <br />
                     <button type="submit">
                         Submit
                     </button>
