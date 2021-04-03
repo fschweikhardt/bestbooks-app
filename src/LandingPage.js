@@ -4,7 +4,7 @@ export default function LandingPage() {
     return (
         <div>
             <h1 style={{
-                fontSize: '30px', 
+                fontSize: '44px', 
                 fontStyle: 'italic'
                 }}>
                     BEST BOOKS

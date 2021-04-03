@@ -11,13 +11,17 @@ export default class bookRandomBook extends React.Component {
 
          if (this.context.randomBook.length === 0) {
             return (
-                <div>
-                    <p>push a button</p>
-                </div>
+                <></>
             )
         }
         return (
-            <div style={{margin: '20px', border: 'dotted', borderColor:'lightgray'}}>
+            <div 
+                style={{
+                marginTop:'10px',
+                marginBottom:'10px',
+                border: 'dotted', 
+                borderColor:'lightgray'}}
+            >
             <h1 style={{fontSize: '28px'}}>{book.award}</h1>
                 <hr style={{marginLeft: '50px', marginRight: '50px'}}/>
                 <h1 style={{

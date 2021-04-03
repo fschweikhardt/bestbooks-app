@@ -5,6 +5,7 @@ import BestBooksContext from './BestBooksContext'
 import LandingPage from './LandingPage' 
 import DisplayRandomBook from './DisplayRandomBook'
 import GetRandomBook from './GetRandomBook' 
+import About from './About'
 import BookSearch from './BookSearch'
 import DisplayList from './DisplayList'
 import AwardInfo from './AwardInfo'
@@ -81,6 +82,7 @@ class App extends React.Component {
             <LandingPage />
             <GetRandomBook />
             <DisplayRandomBook />
+            <About />
             <BookSearch />
             <DisplayList />
             <AwardInfo />

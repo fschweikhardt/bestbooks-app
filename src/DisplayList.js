@@ -8,9 +8,7 @@ export default class DisplayList extends React.Component {
     render() {
          if (this.context.results.length === 0) {
             return (
-                <div>
-                    <p>push a button</p>
-                </div>
+                <></>
             )
         }
         return (
