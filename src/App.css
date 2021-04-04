@@ -62,16 +62,21 @@ li {
   justify-content: center;
 }
 
+/* .group-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+} */
+
 .item {
   flex: 1;
 }
 
-.itemDouble {
-  flex: 2;
-}
-
 .hide-hr {
   display: none;
+}
+
+.random-book-button {
+  text-align: left;
 }
 
 }

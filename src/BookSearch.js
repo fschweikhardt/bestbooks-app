@@ -7,8 +7,8 @@ export default class BookSearch extends React.Component {
 
     state = {
         years: [],
-        awardSelected: '',
-        yearSelected: ''
+        awardSelected: 'nothing',
+        yearSelected: 'nothing'
     }
 
     setAwardSelected = e => {
@@ -76,6 +76,7 @@ export default class BookSearch extends React.Component {
                         return res.json()
                     })
                     .then(res => {
+                        console.log(res)
                         this.context.setAwardResults(res)
                     })
                     .catch (err => console.log(err))
@@ -129,6 +130,10 @@ export default class BookSearch extends React.Component {
                         return res.json()
                     })
                     .then(res => {
+                        console.log(res)
+                        if (res === 'no book available') {
+                            return alert('no book for that award and year')
+                        }
                         this.context.setResults([res])
                     })
                     .catch(err => console.log(err))
@@ -145,7 +150,7 @@ export default class BookSearch extends React.Component {
             )
         })
 
-        const displayAward = this.state.awardSelected === '' ? `Selected: nothing yet!` : `Selected: ${this.state.awardSelected}`
+        const displayAward = this.state.awardSelected === 'nothing' ? `` : `You selected: ${this.state.awardSelected}`
         const awardOptions = this.context.awards.map(award => {
             return (
                 <li 
@@ -183,31 +188,35 @@ export default class BookSearch extends React.Component {
                     <div className='group'>
                         <div className='item'>
                             {/* <u><h2>Award Selected</h2></u> */}
-                            {/* {displayAward} */}
+                            {displayAward}
                             {/* <h3>{this.state.awardSelected}</h3> */}
                             <br />
                             {awardOptions}
                             <br />
                         </div>
                         <div className='item'>
+                          <h1 style={{
+                                fontStyle:'italic', 
+                                fontWeight:'bold', 
+                                fontSize:'30px'
+                                }}>
+                                *     AND / OR     *
+                            </h1>
+                            <label htmlFor="year">
+                                <h3>Choose a Year</h3>
+                                <select name="year" id="year" onChange={this.setYearSelected}>
+                                <option key='0' defaultValue=''></option>
+                                    {yearOptions}
+                                </select>
+                            </label>
+                            <br/>  
+                        </div>
+                        <div className='item'>
                             <u><h2>Award Selected</h2></u>
                             <h3>{this.state.awardSelected}</h3>
-                            <br/>
-                            <p>and/or</p>
-                            <br/>
-                            <div>
-                                <label htmlFor="year">
-                                    <h3>Choose a Year</h3>
-                                    <select name="year" id="year" onChange={this.setYearSelected}>
-                                    <option key='0' defaultValue=''></option>
-                                        {yearOptions}
-                                    </select>
-                                </label>
-                                <br/>
-                            </div>
                             <br />
                             <u><h2>Year Selected</h2></u>
-                            {this.state.yearSelected}
+                            <h3>{this.state.yearSelected}</h3>
                             <br />
                             <button type="submit">
                                 Submit

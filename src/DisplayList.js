@@ -7,7 +7,6 @@ export default class DisplayList extends React.Component {
     static contextType = BestBooksContext
 
     render() {
-        console.log(this.context.displayAward)
         const yearList = this.context.results
         const awardList = this.context.awardResults
         if (yearList.length === 0 && awardList.length === 0) {
@@ -19,11 +18,11 @@ export default class DisplayList extends React.Component {
             return (
                 <div>
                     <hr />
-                    <div>
+                    <div className='group-grid'>
                         <ul>
                             {this.context.results.map( display => {
                                 return (
-                                <li key={display.title} className='itemDouble'>
+                                <li key={display.id} className='item'>
                                     <Book 
                                         title={display.title}
                                         author={display.author}

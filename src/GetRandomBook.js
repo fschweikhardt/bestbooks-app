@@ -37,7 +37,7 @@ export default class GetRandomBook extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className='item'>
                 <hr className='hide-hr' />
                 <h2>Random book generator</h2>
                     <button 

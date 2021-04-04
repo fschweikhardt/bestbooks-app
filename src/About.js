@@ -3,9 +3,8 @@ import React from 'react'
 export default function About() {
     return (
         <div className='group'>
-            
-                <br />
-                <p classname='item'>Need help finding a great book to read? Then this app is for you. 
+            <div className='item'>
+                <p>Need help finding a great book to read? Then this app is for you. 
                 Sort through award winning books and learn more about the world's 
                 most prestigeous award lists.</p>
                 <br />
@@ -18,18 +17,18 @@ export default function About() {
                         marginRight:'100px',
                         }}/>
                 <br />
-                <div>
-                    <p>Click the "Get Random Book" Button</p>
-                    <h1 style={{
-                        fontStyle:'italic', 
-                        fontWeight:'bold', 
-                        fontSize:'30px'
-                        }}>
-                        *     OR     *
-                    </h1>
-                    <p>Search by Award List or Year</p>
-                </div>
-                <br />
+            </div>
+            <div className='item'>
+                <p>Click the "Get Random Book" Button</p>
+                <h1 style={{
+                    fontStyle:'italic', 
+                    fontWeight:'bold', 
+                    fontSize:'30px'
+                    }}>
+                    *     OR     *
+                </h1>
+                <p>Search by Award List or Year</p>
+            </div>
         </div>
     )
 }
