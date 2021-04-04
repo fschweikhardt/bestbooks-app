@@ -66,6 +66,10 @@ li {
   flex: 1;
 }
 
+.itemDouble {
+  flex: 2;
+}
+
 .hide-hr {
   display: none;
 }

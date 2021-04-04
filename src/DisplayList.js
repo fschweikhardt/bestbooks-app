@@ -23,7 +23,7 @@ export default class DisplayList extends React.Component {
                         <ul>
                             {this.context.results.map( display => {
                                 return (
-                                <li key={display.title}>
+                                <li key={display.title} className='itemDouble'>
                                     <Book 
                                         title={display.title}
                                         author={display.author}

@@ -25,6 +25,7 @@ export default class AwardInfo extends React.Component {
                             {displayAwards}
                         </select>
                     </label> */}
+                <u><h1>LEARN MORE ABOUT THE AWARDS</h1></u>
                 <br />
                 <h1>The Booker Prize</h1>
                     <p>The Booker Prize is a literary prize awarded each year for the best novel written in English 

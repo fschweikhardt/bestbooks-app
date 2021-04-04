@@ -145,6 +145,7 @@ export default class BookSearch extends React.Component {
             )
         })
 
+        const displayAward = this.state.awardSelected === '' ? `Selected: nothing yet!` : `Selected: ${this.state.awardSelected}`
         const awardOptions = this.context.awards.map(award => {
             return (
                 <li 
@@ -171,40 +172,48 @@ export default class BookSearch extends React.Component {
                </li>
             )
         })
+
+        
             
         return (
             <div>
                 <hr />
-                <h1>Book Search by Award List and/or Year</h1>
+                <h1>Build Your Own Search</h1>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <u><h2>Award Selected</h2></u>
-                        <h3>{this.state.awardSelected}</h3>
-                        <br />
-                        {awardOptions}
-                        <br />
+                    <div className='group'>
+                        <div className='item'>
+                            {/* <u><h2>Award Selected</h2></u> */}
+                            {/* {displayAward} */}
+                            {/* <h3>{this.state.awardSelected}</h3> */}
+                            <br />
+                            {awardOptions}
+                            <br />
+                        </div>
+                        <div className='item'>
+                            <u><h2>Award Selected</h2></u>
+                            <h3>{this.state.awardSelected}</h3>
+                            <br/>
+                            <p>and/or</p>
+                            <br/>
+                            <div>
+                                <label htmlFor="year">
+                                    <h3>Choose a Year</h3>
+                                    <select name="year" id="year" onChange={this.setYearSelected}>
+                                    <option key='0' defaultValue=''></option>
+                                        {yearOptions}
+                                    </select>
+                                </label>
+                                <br/>
+                            </div>
+                            <br />
+                            <u><h2>Year Selected</h2></u>
+                            {this.state.yearSelected}
+                            <br />
+                            <button type="submit">
+                                Submit
+                            </button>
+                        </div>
                     </div>
-                    <u><h2>Award Selected</h2></u>
-                    <h3>{this.state.awardSelected}</h3>
-                    <br/>
-                    <p>and/or</p>
-                    <br/>
-                    <div>
-                        <label htmlFor="year">
-                            <h3>Choose a Year</h3>
-                            <select name="year" id="year" onChange={this.setYearSelected}>
-                            <option key='0' defaultValue=''></option>
-                                {yearOptions}
-                            </select>
-                        </label>
-                        <br/>
-                    </div>
-                    <br />
-                    <h2>Year Selected</h2>{this.state.yearSelected}
-                    <br />
-                    <button type="submit">
-                        Submit
-                    </button>
                 </form>
             </div>
         )
