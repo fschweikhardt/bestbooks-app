@@ -99,11 +99,17 @@ class App extends React.Component {
           <hr />
           </header>
           <main>
-            
-              <LandingPage />
+            <LandingPage />
             <About />
-            <Route render={() => <GetRandomBook props={this.props}/>}/> 
-           <DisplayRandomBook />
+            <div className='group'>
+              <Route 
+                render={() => <GetRandomBook props={this.props}/>}
+                className='item'
+              /> 
+              <DisplayRandomBook 
+                className='item'
+              />
+            </div>
             <BookSearch />
             <DisplayList />
             <AwardInfo />

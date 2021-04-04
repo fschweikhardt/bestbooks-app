@@ -50,3 +50,24 @@ h3 {
 li {
   list-style: none;
 }
+
+@media all and (min-width: 800px) {
+
+/* <-- flexbox --> */
+
+.group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  flex: 1;
+}
+
+.hide-hr {
+  display: none;
+}
+
+}

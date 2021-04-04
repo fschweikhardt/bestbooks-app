@@ -9,6 +9,8 @@ export default function LandingPage() {
                 }}>
                     BEST BOOKS
             </h1>
+            <br />
+            <hr />
         </div>
     )
 }
