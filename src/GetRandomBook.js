@@ -3,6 +3,11 @@ import config from './config'
 import BestBooksContext from './BestBooksContext'
 
 export default class GetRandomBook extends React.Component {
+    // constructor(props) {
+    //     super(props)
+    //    console.log(props)
+    // }
+
     static contextType = BestBooksContext
 
     getRandomBook = e => {
@@ -25,6 +30,7 @@ export default class GetRandomBook extends React.Component {
             })
             .then(res => {
                 this.context.setRandomBook(res)
+               //this.props.value.history.goBack()
             })
             .catch (err => console.log(err))
     }

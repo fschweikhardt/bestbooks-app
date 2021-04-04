@@ -16,11 +16,13 @@ export default function About() {
                     marginRight:'100px',
                     }}/>
                 <br />
-                <h3>Click the "Get Random Book" Button Above</h3>
-                <br />
+                <p>Click the "Get Random Book" Button</p>
                 <h1 style={{fontStyle:'italic', fontWeight:'bold', fontSize:'30px'}}>
                     *     OR     *
                 </h1>
+                <p>Search by Award List or Year</p>
+                <br />
+                
         </div>
     )
 }

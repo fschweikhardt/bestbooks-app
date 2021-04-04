@@ -1,4 +1,5 @@
 import React from 'react'
+import { Route } from 'react-router-dom'
 import './App.css'
 import config from './config'
 import BestBooksContext from './BestBooksContext'
@@ -98,13 +99,15 @@ class App extends React.Component {
           <hr />
           </header>
           <main>
-            <LandingPage />
-            <GetRandomBook />
-            <DisplayRandomBook />
+            
+              <LandingPage />
             <About />
+            <Route render={() => <GetRandomBook props={this.props}/>}/> 
+           <DisplayRandomBook />
             <BookSearch />
             <DisplayList />
             <AwardInfo />
+            
           </main>
           <footer><hr />Created by Frank Schweikhardt. All rights reserved. Copywrite 2021</footer>
         </div>
