@@ -25,7 +25,7 @@ export default class DisplayList extends React.Component {
                             {this.context.results.map( display => {
                                 return (
                                 <li key={display.id} 
-                                className='item-grid'
+                                className='item'
                                 style={{
                                     margin: '20px', 
                                     border: 'dotted', 
@@ -53,7 +53,7 @@ export default class DisplayList extends React.Component {
                     <ul className='group-awards'>
                         {this.context.awardResults.map( display => {
                             return (
-                            <li key={display.title} className='item-awards'>
+                            <li key={display.title} className='item'>
                                 <AwardBook 
                                     title={display.title}
                                     author={display.author}
