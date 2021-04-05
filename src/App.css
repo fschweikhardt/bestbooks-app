@@ -88,19 +88,27 @@ li {
 }
 
 .group-grid {
-  display: grid;
-  margin: 0 auto;
-  max-width: 80%;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: center; 
+  /* margin: 0 auto; */
+  /* max-width: 80%; */
+  /* grid-template-columns: repeat(2, 1fr); */
 }
-
 .item-grid {
   flex: 1;
-  height: 350px;
+  /* height: 350px; */
   /* align-items: center;
   justify-content: center; */
+}
+
+.group-awards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.item-awards {
+  flex: 1;
 }
 
 .item {

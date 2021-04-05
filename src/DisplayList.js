@@ -50,10 +50,10 @@ export default class DisplayList extends React.Component {
                 <br />
                 <h1>{this.context.displayAward} </h1>
                 <div>
-                    <ul className='group-grid'>
+                    <ul className='group-awards'>
                         {this.context.awardResults.map( display => {
                             return (
-                            <li key={display.title}>
+                            <li key={display.title} className='item-awards'>
                                 <AwardBook 
                                     title={display.title}
                                     author={display.author}
