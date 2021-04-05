@@ -21,3 +21,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 /bestbooks screenshots/bestbooks-screenshot-1.png
 
 ![Screenshot of Best Books](https://github.com/fschweikhardt/bestbooks-app/blob/main/screenshots/bestbooks-screenshot-1.png)
+![Screenshot of Best Books](https://github.com/fschweikhardt/bestbooks-app/blob/main/screenshots/bestbooks-screenshot-2.png)
+![Screenshot of Best Books](https://github.com/fschweikhardt/bestbooks-app/blob/main/screenshots/bestbooks-screenshot-3.png)
+![Screenshot of Best Books](https://github.com/fschweikhardt/bestbooks-app/blob/main/screenshots/bestbooks-screenshot-4.png)
