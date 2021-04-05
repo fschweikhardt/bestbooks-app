@@ -27,39 +27,6 @@ input {
   visibility: hidden;
 }
 
-/* .radio-bts:checked {
-  color: yellow;
-  background-color: indigo;
-}
-
-input:checked + label {
-  color: yellow;
-  background-color: indigo;
-} 
-
-label:checked {
-  color: red;
-  background-color: teal;
-}
- */
-/* input[type="radio"]:checked {
-  color: red;
-  background-color: violet;
-} */
-/*
-input[type="radio"]:checked {
-  box-shadow: 0 0 0 3px orange;
-} 
-*/
-/* label {
-  cursor: pointer;
-}
-
-/* :checked {
-  margin-left: 25px;
-  border: 1px solid blue;
-} */
-
 h1 {
   font-size: 26px;
 }
@@ -78,51 +45,36 @@ li {
 
 @media all and (min-width: 800px) {
 
-/* <-- flexbox --> */
+  /* <-- flexbox --> */
 
-.group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
+  .group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 
-.group-grid {
-  display: grid;
-  /* flex-direction: row; */
-  align-items: center;
-  justify-content: center; 
-  margin: 0 auto;
-  max-width: 80%;
-  /* grid-template-columns: repeat(2, 1fr); */
-}
-/* .item-grid {
-  flex: 1;
-  /* height: 450px; */
-  /* align-items: center;
-  justify-content: center; */
-/* }  */
+  .group-grid {
+    display: grid;
+    align-items: center;
+    justify-content: center; 
+    margin: 0 auto;
+    max-width: 80%;
+  }
 
-.group-awards {
-  display: grid;
-  margin: 0 auto;
-  max-width: 80%;
-  grid-template-columns: repeat(3, 1fr);
-}
-/* .item-awards {
-  flex: 1;
-} */
+  .group-awards {
+    display: grid;
+    margin: 0 auto;
+    max-width: 80%;
+    grid-template-columns: repeat(3, 1fr);
+  }
 
-.item {
-  flex: 1;
-}
+  .item {
+    flex: 1;
+  }
 
-.hide-hr {
-  display: none;
-}
-
-.random-book-button {
-  text-align: left;
-}
+  .hide-hr {
+    display: none;
+  }
 
 }

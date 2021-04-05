@@ -104,7 +104,6 @@ class App extends React.Component {
             <div className='group'>
               <Route 
                 render={() => <GetRandomBook props={this.props}/>}
-                className='item random-book-button'
               /> 
               <DisplayRandomBook 
                 className='item'

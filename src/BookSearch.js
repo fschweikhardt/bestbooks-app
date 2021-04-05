@@ -76,7 +76,6 @@ export default class BookSearch extends React.Component {
                         return res.json()
                     })
                     .then(res => {
-                        console.log(res)
                         this.context.setAwardResults(res)
                     })
                     .catch (err => console.log(err))
@@ -130,7 +129,6 @@ export default class BookSearch extends React.Component {
                         return res.json()
                     })
                     .then(res => {
-                        console.log(res)
                         if (res === 'no book available') {
                             return alert('no book for that award and year')
                         }
