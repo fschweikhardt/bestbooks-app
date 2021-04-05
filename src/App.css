@@ -27,12 +27,37 @@ input {
   visibility: hidden;
 }
 
+/* .radio-bts:checked {
+  color: yellow;
+  background-color: indigo;
+}
+
+input:checked + label {
+  color: yellow;
+  background-color: indigo;
+} 
+
+label:checked {
+  color: red;
+  background-color: teal;
+}
+ */
+/* input[type="radio"]:checked {
+  color: red;
+  background-color: violet;
+} */
+/*
+input[type="radio"]:checked {
+  box-shadow: 0 0 0 3px orange;
+} 
+*/
 /* label {
   cursor: pointer;
 }
 
-input:checked  {
-    background: red;
+/* :checked {
+  margin-left: 25px;
+  border: 1px solid blue;
 } */
 
 h1 {
@@ -62,10 +87,21 @@ li {
   justify-content: center;
 }
 
-/* .group-grid {
+.group-grid {
   display: grid;
+  margin: 0 auto;
+  max-width: 80%;
   grid-template-columns: repeat(2, 1fr);
-} */
+  align-items: center;
+  justify-content: center;
+}
+
+.item-grid {
+  flex: 1;
+  height: 350px;
+  /* align-items: center;
+  justify-content: center; */
+}
 
 .item {
   flex: 1;

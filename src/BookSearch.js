@@ -137,6 +137,8 @@ export default class BookSearch extends React.Component {
                         this.context.setResults([res])
                     })
                     .catch(err => console.log(err))
+
+                
         } 
     }
 
@@ -150,6 +152,7 @@ export default class BookSearch extends React.Component {
             )
         })
 
+        //const radioButtons = this.state.awardSelected === 'nothing' ? `yellow` : 'lightgray'
         const displayAward = this.state.awardSelected === 'nothing' ? `` : `You selected: ${this.state.awardSelected}`
         const awardOptions = this.context.awards.map(award => {
             return (
