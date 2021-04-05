@@ -16,3 +16,8 @@ This is a fullstack app using React, CSS, Node, Express, and PostgreSQL.
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+### Screen Shots
+
+/bestbooks screenshots/bestbooks-screenshot-1.png
+
+![Screenshot of Best Books](https://github.com/fschweikhardt/bestbooks-app/blob/main/screenshots/bestbooks-screenshot-1.png)
