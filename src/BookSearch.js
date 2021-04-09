@@ -138,6 +138,8 @@ export default class BookSearch extends React.Component {
 
                 
         } 
+
+        //e.target.reset()
     }
 
     render() {
