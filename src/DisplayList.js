@@ -41,7 +41,7 @@ export default class DisplayList extends React.Component {
                         </ul>
                     </div>
                 </div>
-                
+
         const awardDisplay = 
             <div>
                 <hr />  
@@ -63,6 +63,7 @@ export default class DisplayList extends React.Component {
                     </ul>
                 </div>
             </div>  
+            
         if (yearList.length === 0 && awardList.length === 0) {
             return noDisplay
         } else if (this.context.awardResults.length === 0) {
