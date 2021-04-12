@@ -9,11 +9,22 @@ export default class DisplayList extends React.Component {
     render() {
         const yearList = this.context.results
         const awardList = this.context.awardResults
-        if (yearList.length === 0 && awardList.length === 0) {
-            return (
-                <></>
-            )
-        }
+
+        const noSelection = 
+            <div>
+                <p>nothing selected</p>
+            </div>
+        
+        yearList.length === 0 && awardList.length === 0 ? noSelection : null
+
+        // if (yearList.length === 0 && awardList.length === 0) {
+        //     return (
+        //         <></>
+        //     )
+        // }
+
+        // selecting years only, years and award list --> returns Book
+        //const YearAndAwardSelected = <div>...</div>
         if (this.context.awardResults.length === 0) {
             return (
                 <div>
@@ -44,7 +55,9 @@ export default class DisplayList extends React.Component {
                     </div>
                 </div>
             )
-        }  return (
+        }  
+        //selecting just the award list --> AwardBook
+        return (
             <div>
                 <hr />  
                 <br />
