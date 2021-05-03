@@ -46,7 +46,7 @@ export default class DisplayList extends React.Component {
             <div>
                 <hr />  
                 <br />
-                <h1>{this.context.displayAward} </h1>
+                <h1>{this.context.displayAward}</h1>
                 <div>
                     <ul className='group-awards'>
                         {this.context.awardResults.map( display => {
