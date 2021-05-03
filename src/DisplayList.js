@@ -11,7 +11,7 @@ export default class DisplayList extends React.Component {
         const awardList = this.context.awardResults
 
         const noDisplay =
-            <div></div>
+            <></>
 
         const yearDisplay =
                 <div>
