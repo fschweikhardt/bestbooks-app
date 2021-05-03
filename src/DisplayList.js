@@ -66,8 +66,8 @@ export default class DisplayList extends React.Component {
             
         if (yearList.length === 0 && awardList.length === 0) {
             return noDisplay
-        } else if (this.context.awardResults.length === 0) {
-            return yearDisplay
-        } return awardDisplay
+        } else if (yearList.length === 0) {
+            return awardDisplay
+        } else return yearDisplay
     }
 }
