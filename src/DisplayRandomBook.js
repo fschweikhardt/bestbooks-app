@@ -7,33 +7,36 @@ export default class DisplayRandomBook extends React.Component {
     render() {
         const book = this.context.randomBook
 
-         if (this.context.randomBook.length === 0) {
+        if (this.context.randomBook.length === 0) {
             return (
                 <></>
             )
         }
         return (
-            <div 
-                className='item'
-                style={{
-                    marginTop:'10px',
-                    marginBottom:'10px',
-                    border: 'dotted', 
-                    borderColor:'lightgray'}}
-            >
-            <h1 style={{fontSize: '28px'}}>{book.award}</h1>
-                <hr style={{marginLeft: '50px', marginRight: '50px'}}/>
-                <h1 style={{
-                    fontSize: '28px',
-                    fontStyle:'italic',
-                    fontWeight: 'bold'
-                    }}>
-                        {book.title}
-                </h1>
-                <p>by</p>
-                <h2>{book.author}</h2>
-                <p>published in</p>
-                <h3>{book.year}</h3>
+            <div className="modal">
+            <div className="modal_content">
+                <div 
+                    style={{
+                        marginTop:'10px',
+                        marginBottom:'10px',
+                        border: 'dotted', 
+                        borderColor:'lightgray'}}
+                >
+                <h1 style={{fontSize: '28px'}}>{book.award}</h1>
+                    <hr style={{marginLeft: '50px', marginRight: '50px'}}/>
+                    <h1 style={{
+                        fontSize: '28px',
+                        fontStyle:'italic',
+                        fontWeight: 'bold'
+                        }}>
+                            {book.title}
+                    </h1>
+                    <p>by</p>
+                    <h2>{book.author}</h2>
+                    <p>published in</p>
+                    <h3>{book.year}</h3>
+            </div>
+        </div>
         </div>
         )
     }

@@ -43,6 +43,30 @@ li {
   list-style: none;
 }
 
+.modal {
+  position: center;
+  z-index: 1;
+  width: 50%;
+  height: 50%;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.modal_content {
+  /* background-color: white; */
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  width: 40%;
+  padding: 20px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.close {
+  color: red;
+  float: right;
+}
+
 @media all and (min-width: 800px) {
 
   /* <-- flexbox --> */

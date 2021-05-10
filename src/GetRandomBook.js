@@ -34,17 +34,17 @@ export default class GetRandomBook extends React.Component {
             .catch (err => console.log(err))
         
         this.setState({
-            display: true
+            display: !this.state.display
         })
     }
 
     render() {
-        const logic = 
-            this.state.display === false ? null : <DisplayRandomBook />
+        const displayLogic = 
+            this.state.display ? <DisplayRandomBook display={this.state.display}/> : null
 
         return (
-            <div className='item'>
-                <hr className='hide-hr' />
+            <div>
+                {/* <hr className='hide-hr' /> */}
                 <h2>Random book generator</h2>
                     <button 
                         type="button"
@@ -52,7 +52,7 @@ export default class GetRandomBook extends React.Component {
                         >
                         Get Random Book
                     </button>
-                {logic}
+               {displayLogic}
             </div>
         )
     }
