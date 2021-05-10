@@ -1,23 +1,22 @@
 import React from 'react'
-import BestBooksContext from './BestBooksContext'
+// import BestBooksContext from './BestBooksContext'
 import config from './config'
 
 export default class DisplayRandomBook extends React.Component {
-    static contextType = BestBooksContext
+    // static contextType = BestBooksContext
 
     handleClick = () => {
         this.props.onCloseButton()
     }
 
-    
-    componentDidMount() {
+    /* componentDidMount() {
         let book = this.context.randomBook
         console.log(book)
-        let author = book.author
+        let author = book.author.split(' ')
         let title = book.title
         let baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
-        let url = `${baseUrl}${title}+inauthor:${author}&key=${config.API_BOOKS_KEY}`
-        console.log('author', author.split(' '))
+        let url = `${baseUrl}${title.trim()}+inauthor:${author[1]}&key=${config.API_BOOKS_KEY}`
+        console.log('author', author)
         console.log('title', title)
         console.log('url', url)
         fetch(url)
@@ -33,17 +32,19 @@ export default class DisplayRandomBook extends React.Component {
             .catch(err => {
                 console.error({ err })
             })
-
     }
+
+    */
     
     render() {
-        const book = this.context.randomBook
+        console.log(this.props.bookFromDatabase)
+        const book = this.props.bookFromDatabase
 
-        if (this.context.randomBook.length === 0) {
-            return (
-                <></>
-            )
-        }
+        // if (this.context.randomBook.length === 0) {
+        //     return (
+        //         <></>
+        //     )
+        // }
         return (
                 <div className="modal modal_content">
                     <span className="close" onClick={this.handleClick}>
