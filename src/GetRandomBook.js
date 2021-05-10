@@ -1,14 +1,14 @@
 import React from 'react'
 import config from './config'
 import BestBooksContext from './BestBooksContext'
+import DisplayRandomBook from './DisplayRandomBook'
 
 export default class GetRandomBook extends React.Component {
-    // constructor(props) {
-    //     super(props)
-    //    console.log(props)
-    // }
-
     static contextType = BestBooksContext
+
+    state = {
+        display: false
+    }
 
     getRandomBook = e => {
         e.preventDefault()
@@ -30,12 +30,18 @@ export default class GetRandomBook extends React.Component {
             })
             .then(res => {
                 this.context.setRandomBook(res)
-               //this.props.value.history.goBack()
             })
             .catch (err => console.log(err))
+        
+        this.setState({
+            display: true
+        })
     }
 
     render() {
+        const logic = 
+            this.state.display === false ? null : <DisplayRandomBook />
+
         return (
             <div className='item'>
                 <hr className='hide-hr' />
@@ -46,6 +52,7 @@ export default class GetRandomBook extends React.Component {
                         >
                         Get Random Book
                     </button>
+                {logic}
             </div>
         )
     }

@@ -1,8 +1,7 @@
 import React from 'react'
-//import Book from './Book'
 import BestBooksContext from './BestBooksContext'
 
-export default class bookRandomBook extends React.Component {
+export default class DisplayRandomBook extends React.Component {
     static contextType = BestBooksContext
 
     render() {
@@ -10,8 +9,7 @@ export default class bookRandomBook extends React.Component {
 
          if (this.context.randomBook.length === 0) {
             return (
-                <div className='item'>
-                </div>
+                <></>
             )
         }
         return (

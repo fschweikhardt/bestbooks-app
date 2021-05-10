@@ -1,10 +1,9 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import './App.css'
 import config from './config'
 import BestBooksContext from './BestBooksContext'
 import LandingPage from './LandingPage' 
-import DisplayRandomBook from './DisplayRandomBook'
+//import DisplayRandomBook from './DisplayRandomBook'
 import GetRandomBook from './GetRandomBook' 
 import About from './About'
 import BookSearch from './BookSearch'
@@ -101,14 +100,10 @@ class App extends React.Component {
           <main>
             <LandingPage />
             <About />
-            <div className='group'>
-              <Route 
-                render={() => <GetRandomBook props={this.props}/>}
-              /> 
-              <DisplayRandomBook 
-                className='item'
-              />
-            </div>
+            {/* <div className='group'> */}
+              <GetRandomBook />
+              {/* <DisplayRandomBook /> */}
+            {/* </div> */}
             <BookSearch />
             <DisplayList />
             <AwardInfo />
