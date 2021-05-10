@@ -10,15 +10,7 @@ export default class bookRandomBook extends React.Component {
 
          if (this.context.randomBook.length === 0) {
             return (
-                <div 
-                className='item'
-                // style={{
-                //     marginTop:'10px',
-                //     marginBottom:'10px',
-                //     border: 'dotted', 
-                //     borderColor:'lightgray'}}
-                // 
-                >
+                <div className='item'>
                 </div>
             )
         }
