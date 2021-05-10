@@ -40,7 +40,7 @@ export default class GetRandomBook extends React.Component {
 
     render() {
         const displayLogic = 
-            this.state.display ? <DisplayRandomBook display={this.state.display}/> : null
+            this.state.display ? <DisplayRandomBook getRandomBook={this.getRandomBook}/> : null
 
         return (
             <div>

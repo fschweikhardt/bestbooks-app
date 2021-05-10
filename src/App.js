@@ -82,10 +82,10 @@ class App extends React.Component {
       displayAward: this.state.displayAward
     }
 
-    console.log(this.state.results)
-    console.log(this.state.awardResults)
-    console.log(this.state.randomBook)
-    console.log(this.state.awards)            
+    //console.log(this.state.results)
+    //console.log(this.state.awardResults)
+    console.log(this.state.randomBook.title)
+    //console.log(this.state.awards)            
 
     return (
       <BestBooksContext.Provider value={value}>

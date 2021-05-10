@@ -4,6 +4,9 @@ import BestBooksContext from './BestBooksContext'
 export default class DisplayRandomBook extends React.Component {
     static contextType = BestBooksContext
 
+    handleClick = () => {
+        this.props.getRandomBook()
+    }
     render() {
         const book = this.context.randomBook
 
@@ -15,6 +18,9 @@ export default class DisplayRandomBook extends React.Component {
         return (
             <div className="modal">
             <div className="modal_content">
+            <span className="close" onClick={this.handleClick}>
+            &times;
+          </span>
                 <div 
                     style={{
                         marginTop:'10px',
