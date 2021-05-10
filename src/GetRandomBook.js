@@ -38,9 +38,15 @@ export default class GetRandomBook extends React.Component {
         })
     }
 
+    handleCloseButton = () => {
+        this.setState({
+            display: false
+        })
+    }
+
     render() {
         const displayLogic = 
-            this.state.display ? <DisplayRandomBook getRandomBook={this.getRandomBook}/> : null
+            this.state.display ? <DisplayRandomBook onCloseButton={this.handleCloseButton}/> : null
 
         return (
             <div>
