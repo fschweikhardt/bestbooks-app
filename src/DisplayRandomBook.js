@@ -1,11 +1,39 @@
 import React from 'react'
 import BestBooksContext from './BestBooksContext'
+import config from './config'
 
 export default class DisplayRandomBook extends React.Component {
     static contextType = BestBooksContext
 
     handleClick = () => {
         this.props.onCloseButton()
+    }
+
+    
+    componentDidMount() {
+        let book = this.context.randomBook
+        console.log(book)
+        let author = book.author
+        let title = book.title
+        let baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
+        let url = `${baseUrl}${title}+inauthor:${author}&key=${config.API_BOOKS_KEY}`
+        console.log('author', author.split(' '))
+        console.log('title', title)
+        console.log('url', url)
+        fetch(url)
+            .then(res => {
+                if (!res.ok) {
+                    return res.json().then(e => Promise.reject(e))
+                }
+                return res.json()
+            })
+            .then(data => {
+                console.log(data)
+            })
+            .catch(err => {
+                console.error({ err })
+            })
+
     }
     
     render() {
@@ -23,8 +51,8 @@ export default class DisplayRandomBook extends React.Component {
                     </span>
                     <div 
                         style={{
-                            marginTop: '10px',
-                            marginBottom:'10px',
+                            // marginTop: '10px',
+                            // marginBottom:'10px',
                             border: 'dotted', 
                             borderColor:'lightgray'}}
                     >
@@ -46,3 +74,5 @@ export default class DisplayRandomBook extends React.Component {
         )
     }
 }
+
+//https://www.googleapis.com/books/v1/volumes?q=JohnUpdikeRabbitIsRich&key=AIzaSyBWBhpvxfwM9xD5-_I2qej6KfUH0ufDSjo
