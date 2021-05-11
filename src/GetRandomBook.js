@@ -1,15 +1,11 @@
 import React from 'react'
 import config from './config'
-import BestBooksContext from './BestBooksContext'
 import DisplayRandomBook from './DisplayRandomBook'
 
 export default class GetRandomBook extends React.Component {
-    static contextType = BestBooksContext
 
     state = {
         display: false,
-        title: '',
-        author: '',
         bookFromDatabase: []
     }
 
@@ -32,13 +28,6 @@ export default class GetRandomBook extends React.Component {
                 return res.json()
             })
             .then(res => {
-                this.context.setRandomBook(res)
-                this.setState({
-                    title: res.title
-                })
-                this.setState({
-                    author: res.author
-                })
                 this.setState({
                     bookFromDatabase: res
                 })
@@ -46,7 +35,7 @@ export default class GetRandomBook extends React.Component {
             .catch (err => console.log(err))
         
         this.setState({
-            display: !this.state.display
+            display: true
         })
     }
 
@@ -58,7 +47,7 @@ export default class GetRandomBook extends React.Component {
 
     render() {
         const displayLogic = 
-            this.state.display ? <DisplayRandomBook bookFromDatabase={this.state.bookFromDatabase} title={this.state.title} author={this.state.author} onCloseButton={this.handleCloseButton}/> : null
+            this.state.display ? <DisplayRandomBook bookFromDatabase={this.state.bookFromDatabase} onCloseButton={this.handleCloseButton}/> : null
 
         return (
             <div>

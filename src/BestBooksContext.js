@@ -4,11 +4,11 @@ const BestBooksContext = React.createContext({
     setResults: () => {},
     setAwardResults: () => {},
     setDisplayAward: () => {},
-    setRandomBook: () => {},
+    // setRandomBook: () => {},
     results: [],
     awards: [],
     awardResults: [],
-    randomBook: [],
+    // randomBook: [],
     displayAward: ''
 })
 

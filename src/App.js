@@ -14,7 +14,7 @@ class App extends React.Component {
   state = {
     results: [],
     awardResults: [],
-    randomBook: [],
+    // randomBook: [],
     awards: [],
     displayAward: ''
   }
@@ -37,11 +37,11 @@ class App extends React.Component {
     })
   }
 
-  handleSetRandomBook = setData => {
-    this.setState({
-      randomBook: setData
-    })
-  }
+  // handleSetRandomBook = setData => {
+  //   this.setState({
+  //     randomBook: setData
+  //   })
+  // }
 
   componentDidMount() {
     const options = {
@@ -76,16 +76,16 @@ class App extends React.Component {
       setResults: this.handleSetResults,
       setAwardResults: this.handleSetAwardResults,
       setDisplayAward: this.handleSetDisplayAward,
-      setRandomBook: this.handleSetRandomBook,
+      // setRandomBook: this.handleSetRandomBook,
       awards: this.state.awards,
-      randomBook: this.state.randomBook,
+      // randomBook: this.state.randomBook,
       displayAward: this.state.displayAward
     }
 
-    //console.log(this.state.results)
-    //console.log(this.state.awardResults)
-    console.log(this.state.randomBook.title)
-    //console.log(this.state.awards)            
+    // console.log(this.state.results)
+    // console.log(this.state.awardResults)
+    // console.log(this.state.randomBook.title)
+    // console.log(this.state.awards)            
 
     return (
       <BestBooksContext.Provider value={value}>
