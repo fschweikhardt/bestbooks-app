@@ -52,7 +52,6 @@ export default class GetRandomBook extends React.Component {
     }
 
     render() {
-        console.log(this.state.bookFromDatabase.title)
         const displayLogic = 
             this.state.display 
             ? <DisplayRandomBook 
@@ -63,7 +62,6 @@ export default class GetRandomBook extends React.Component {
 
         return (
             <div>
-                {/* <hr className='hide-hr' /> */}
                 <h2>Random book generator</h2>
                     <button 
                         type="button"

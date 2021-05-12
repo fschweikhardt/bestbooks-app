@@ -16,11 +16,9 @@ export default function DisplayRandomBook(props) {
     let authorString = `${book.author}`
     let authorSplit = authorString.split(' ')
     let authorUrl = authorSplit[1]
-    console.log(authorUrl)
 
     let title = book.title
     let titleTrim = title.replaceAll(' ', '')
-    console.log(titleTrim)
     
     let baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
     let url = `${baseUrl}${titleTrim}+inauthor:${authorUrl}&key=${config.API_BOOKS_KEY}`
