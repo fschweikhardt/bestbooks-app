@@ -6,7 +6,15 @@ export default class GetRandomBook extends React.Component {
 
     state = {
         display: false,
-        bookFromDatabase: []
+        bookFromDatabase: [
+            {
+                id: 80, 
+                award: "National Book Award for Fiction", 
+                title: "The Moviegoer", 
+                author: "Walker Percy", 
+                year: 1962
+            }
+        ]
     }
 
     getRandomBook = e => {
@@ -46,8 +54,14 @@ export default class GetRandomBook extends React.Component {
     }
 
     render() {
+        console.log(this.state.bookFromDatabase)
         const displayLogic = 
-            this.state.display ? <DisplayRandomBook bookFromDatabase={this.state.bookFromDatabase} onCloseButton={this.handleCloseButton}/> : null
+            this.state.display 
+            ? <DisplayRandomBook 
+                bookFromDatabase={this.state.bookFromDatabase} 
+                onCloseButton={this.handleCloseButton}
+                />
+            : null
 
         return (
             <div>
