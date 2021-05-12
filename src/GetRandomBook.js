@@ -3,7 +3,7 @@ import config from './config'
 import DisplayRandomBook from './DisplayRandomBook'
 
 export default class GetRandomBook extends React.Component {
-
+    
     state = {
         display: false,
         bookFromDatabase: {

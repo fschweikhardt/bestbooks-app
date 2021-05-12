@@ -36,8 +36,6 @@ export default function DisplayRandomBook(props) {
             return res.json()
         })
         .then(data => {
-            console.log(data.items[0])
-            // console.log(data.items[0].volumeInfo.imageLinks.thumbnail)
             setThumbnail(data.items[0].volumeInfo.imageLinks.thumbnail)
             setSnippet(data.items[0].volumeInfo.description)
         })
@@ -45,9 +43,6 @@ export default function DisplayRandomBook(props) {
             console.error({ err })
             setThumbnail('')
         })
-
-        console.log(thumbnail)
-        console.log(snippet)
 
         return (
                 <div className="modal modal_content">
