@@ -12,6 +12,7 @@ export default function DisplayRandomBook(props) {
     //     thumbnail: ''
     // }
     const [ thumbnail, setThumbnail ] = useState('')
+    const [ snippet, setSnippet ] = useState('')
     
     const book = props.bookFromDatabase
 
@@ -35,9 +36,10 @@ export default function DisplayRandomBook(props) {
             return res.json()
         })
         .then(data => {
-            // console.log(data)
+            console.log(data.items[0])
             // console.log(data.items[0].volumeInfo.imageLinks.thumbnail)
             setThumbnail(data.items[0].volumeInfo.imageLinks.thumbnail)
+            setSnippet(data.items[0].volumeInfo.description)
         })
         .catch(err => {
             console.error({ err })
@@ -45,6 +47,7 @@ export default function DisplayRandomBook(props) {
         })
 
         console.log(thumbnail)
+        console.log(snippet)
 
         return (
                 <div className="modal modal_content">
@@ -71,7 +74,9 @@ export default function DisplayRandomBook(props) {
                         <h2>{book.author}</h2>
                         <p>published in</p>
                         <h3>{book.year}</h3>
-                        <img src={thumbnail} alt='GREAT BOOK' />
+                        <br />
+                        <img src={thumbnail} alt='none availible' />
+                        <p>{snippet}</p>
                 </div>
             </div>
         )
