@@ -41,10 +41,9 @@ export default class GetRandomBook extends React.Component {
                 })
             })
             .catch (err => console.log(err))
-        
-        this.setState({
-            display: true
-        })
+            .then(this.setState({
+                display: true
+            }))
     }
 
     handleCloseButton = () => {
