@@ -29,6 +29,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 - The app is still in it's infancy. Everything is functional, but it needs a lot of work. 
 - [Branch: book-pop-up]. 
-    - Fix pop-up window spacing. 
-    - Add book quotes API. 
-    - 
+    - Fix pop-up window spacing
+    - useContext for GetRandomBook
+    - fade in? pop up until context updates
+    - Add book quotes API
