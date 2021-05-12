@@ -75,7 +75,9 @@ export default function DisplayRandomBook(props) {
                         <p>published in</p>
                         <h3>{book.year}</h3>
                         <br />
-                        <img src={thumbnail} alt='none availible' />
+                        <img src={thumbnail} alt='none available' />
+                        <br />
+                        <br />
                         <p>{snippet}</p>
                 </div>
             </div>
