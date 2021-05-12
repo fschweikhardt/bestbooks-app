@@ -8,9 +8,6 @@ export default function DisplayRandomBook(props) {
         props.onCloseButton()
     }
 
-    // state = {
-    //     thumbnail: ''
-    // }
     const [ thumbnail, setThumbnail ] = useState('')
     const [ snippet, setSnippet ] = useState('')
     
@@ -43,6 +40,8 @@ export default function DisplayRandomBook(props) {
             console.error({ err })
             setThumbnail('')
         })
+
+        // style={{className: 'pop-up-background': backgroundColor: 'yellow'}}
 
         return (
                 <div className="modal_content">

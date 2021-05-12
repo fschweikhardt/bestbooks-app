@@ -43,9 +43,8 @@ li {
   list-style: none;
 }
 
-/* img {
-  width: auto;
-  height: auto;
+/* .pop-up-background {
+  filter: blur(4px);
 } */
 
 /* .modal {
