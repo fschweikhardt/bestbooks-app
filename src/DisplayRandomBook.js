@@ -9,23 +9,21 @@ export default function DisplayRandomBook(props) {
 
     const book = props.bookFromDatabase
 
-    // let author = book.author
     let authorString = `${book.author}`
     let authorSplit = authorString.split(' ')
     let authorUrl = authorSplit[1]
-    // console.log(book.author)
-    // console.log(authorSplit)
-    // console.log(authorUrl)
+    console.log(authorUrl)
 
-    console.log(book.title)
-    let titleTrim = book.title.replaceAll(' ', '').toLowerCase()
+    let title = book.title
+    let titleTrim = title.replaceAll(' ', '')
     console.log(titleTrim)
     
+    /*
     let baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
     let url = `${baseUrl}${titleTrim}+inauthor:${authorUrl}&key=${config.API_BOOKS_KEY}`
-    console.log('author', author)
-    console.log('title', title)
-    console.log('url', url)
+    // console.log('author', author)
+    // console.log('title', title)
+    // console.log('url', url)
     fetch(url)
         .then(res => {
             if (!res.ok) {
@@ -39,9 +37,7 @@ export default function DisplayRandomBook(props) {
         .catch(err => {
             console.error({ err })
         })
-
-        */
-
+*/
         return (
                 <div className="modal modal_content">
                     <span className="close" onClick={handleClick}>
