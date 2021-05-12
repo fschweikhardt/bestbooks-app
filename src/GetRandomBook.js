@@ -40,10 +40,11 @@ export default class GetRandomBook extends React.Component {
                     bookFromDatabase: res
                 })
             })
-            .catch (err => console.log(err))
             .then(this.setState({
                 display: true
             }))
+            .catch (err => console.log(err))
+            
     }
 
     handleCloseButton = () => {

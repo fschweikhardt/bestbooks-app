@@ -8,30 +8,39 @@ export default function DisplayRandomBook(props) {
     }
 
     const book = props.bookFromDatabase
-    const author = book.author
-    console.log(author)
-    // const authorSplit = author[1]
-    const title = book.title
-    // const titleTrim = title.trim()
 
+    // let author = book.author
+    let authorString = `${book.author}`
+    let authorSplit = authorString.split(' ')
+    let authorUrl = authorSplit[1]
+    // console.log(book.author)
+    // console.log(authorSplit)
+    // console.log(authorUrl)
+
+    console.log(book.title)
+    let titleTrim = book.title.replaceAll(' ', '').toLowerCase()
+    console.log(titleTrim)
+    
     let baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
-    let url = `${baseUrl}${title}+inauthor:${author}&key=${config.API_BOOKS_KEY}`
+    let url = `${baseUrl}${titleTrim}+inauthor:${authorUrl}&key=${config.API_BOOKS_KEY}`
     console.log('author', author)
-    // console.log('title', title)
-    // console.log('url', url)
-    // fetch(url)
-    //     .then(res => {
-    //         if (!res.ok) {
-    //             return res.json().then(e => Promise.reject(e))
-    //         }
-    //         return res.json()
-    //     })
-    //     .then(data => {
-    //         console.log(data)
-    //     })
-    //     .catch(err => {
-    //         console.error({ err })
-    //     })
+    console.log('title', title)
+    console.log('url', url)
+    fetch(url)
+        .then(res => {
+            if (!res.ok) {
+                return res.json().then(e => Promise.reject(e))
+            }
+            return res.json()
+        })
+        .then(data => {
+            console.log(data)
+        })
+        .catch(err => {
+            console.error({ err })
+        })
+
+        */
 
         return (
                 <div className="modal modal_content">
