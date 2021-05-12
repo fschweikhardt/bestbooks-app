@@ -45,7 +45,7 @@ export default function DisplayRandomBook(props) {
         })
 
         return (
-                <div className="modal modal_content">
+                <div className="modal_content">
                     <span className="close" onClick={handleClick}>
                         &times;
                     </span>
@@ -54,9 +54,7 @@ export default function DisplayRandomBook(props) {
                             border: 'dotted', 
                             borderColor:'lightgray'}}
                     >
-                        <h1 style={{fontSize: '28px'}}>
-                            {book.award}
-                        </h1>
+                        <h1>{book.award}</h1>
                         <hr style={{marginLeft: '50px', marginRight: '50px'}}/>
                         <h1 style={{
                             fontSize: '28px',

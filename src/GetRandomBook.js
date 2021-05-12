@@ -3,7 +3,7 @@ import config from './config'
 import DisplayRandomBook from './DisplayRandomBook'
 
 export default class GetRandomBook extends React.Component {
-    
+
     state = {
         display: false,
         bookFromDatabase: {
@@ -38,11 +38,11 @@ export default class GetRandomBook extends React.Component {
                     bookFromDatabase: res
                 })
             })
-            .then(this.setState({
-                display: true
-            }))
             .catch (err => console.log(err))
             
+        this.setState({
+            display: true
+        })
     }
 
     handleCloseButton = () => {
@@ -52,7 +52,7 @@ export default class GetRandomBook extends React.Component {
     }
 
     render() {
-        console.log(this.state.bookFromDatabase)
+        console.log(this.state.bookFromDatabase.title)
         const displayLogic = 
             this.state.display 
             ? <DisplayRandomBook 
