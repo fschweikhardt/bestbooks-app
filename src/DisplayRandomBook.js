@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react'
 import config from './config'
 
 export default function DisplayRandomBook(props) {
@@ -7,6 +8,11 @@ export default function DisplayRandomBook(props) {
         props.onCloseButton()
     }
 
+    // state = {
+    //     thumbnail: ''
+    // }
+    const [ thumbnail, setThumbnail ] = useState('')
+    
     const book = props.bookFromDatabase
 
     let authorString = `${book.author}`
@@ -18,12 +24,9 @@ export default function DisplayRandomBook(props) {
     let titleTrim = title.replaceAll(' ', '')
     console.log(titleTrim)
     
-    /*
     let baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
     let url = `${baseUrl}${titleTrim}+inauthor:${authorUrl}&key=${config.API_BOOKS_KEY}`
-    // console.log('author', author)
-    // console.log('title', title)
-    // console.log('url', url)
+
     fetch(url)
         .then(res => {
             if (!res.ok) {
@@ -32,12 +35,17 @@ export default function DisplayRandomBook(props) {
             return res.json()
         })
         .then(data => {
-            console.log(data)
+            // console.log(data)
+            // console.log(data.items[0].volumeInfo.imageLinks.thumbnail)
+            setThumbnail(data.items[0].volumeInfo.imageLinks.thumbnail)
         })
         .catch(err => {
             console.error({ err })
+            setThumbnail('')
         })
-*/
+
+        console.log(thumbnail)
+
         return (
                 <div className="modal modal_content">
                     <span className="close" onClick={handleClick}>
@@ -63,6 +71,7 @@ export default function DisplayRandomBook(props) {
                         <h2>{book.author}</h2>
                         <p>published in</p>
                         <h3>{book.year}</h3>
+                        <img src={thumbnail} alt='GREAT BOOK' />
                 </div>
             </div>
         )
