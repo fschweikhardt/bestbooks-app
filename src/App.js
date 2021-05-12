@@ -1,10 +1,8 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
 import './App.css'
 import config from './config'
 import BestBooksContext from './BestBooksContext'
 import LandingPage from './LandingPage' 
-import DisplayRandomBook from './DisplayRandomBook'
 import GetRandomBook from './GetRandomBook' 
 import About from './About'
 import BookSearch from './BookSearch'
@@ -15,7 +13,6 @@ class App extends React.Component {
   state = {
     results: [],
     awardResults: [],
-    randomBook: [],
     awards: [],
     displayAward: ''
   }
@@ -35,12 +32,6 @@ class App extends React.Component {
   handleSetDisplayAward = setData => {
     this.setState({
       displayAward: setData
-    })
-  }
-
-  handleSetRandomBook = setData => {
-    this.setState({
-      randomBook: setData
     })
   }
 
@@ -77,20 +68,13 @@ class App extends React.Component {
       setResults: this.handleSetResults,
       setAwardResults: this.handleSetAwardResults,
       setDisplayAward: this.handleSetDisplayAward,
-      setRandomBook: this.handleSetRandomBook,
       awards: this.state.awards,
-      randomBook: this.state.randomBook,
       displayAward: this.state.displayAward
     }
 
-    console.log(this.state.results)
-    console.log(this.state.awardResults)
-    console.log(this.state.randomBook)
-    console.log(this.state.awards)            
-
     return (
       <BestBooksContext.Provider value={value}>
-        <div>
+        <div className='pop-up-background'>
           <header style={{fontSize:'12px'}}>
               “I shall be miserable if I have not an excellent library.” 
               – Jane Austen in <i>Pride and Prejudice</i> 
@@ -101,18 +85,10 @@ class App extends React.Component {
           <main>
             <LandingPage />
             <About />
-            <div className='group'>
-              <Route 
-                render={() => <GetRandomBook props={this.props}/>}
-              /> 
-              <DisplayRandomBook 
-                className='item'
-              />
-            </div>
+            <GetRandomBook />
             <BookSearch />
             <DisplayList />
             <AwardInfo />
-            
           </main>
           <footer><hr />Created by Frank Schweikhardt. All rights reserved. Copywrite 2021</footer>
         </div>

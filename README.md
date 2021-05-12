@@ -28,4 +28,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 ## To Do's 
 
 - The app is still in it's infancy. Everything is functional, but it needs a lot of work. 
-- Maybe the first thing to do it to get a book image and data. Create a pop up box on the "Get Random Book" button and then fetch to Google Books for the data. 
+- Branch: book-pop-up 
+    - useContext for GetRandomBook
+    - fade in pop up until context updates? and blur background 
+    - Add book quotes API
+    

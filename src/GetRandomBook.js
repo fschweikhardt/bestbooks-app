@@ -1,14 +1,19 @@
 import React from 'react'
 import config from './config'
-import BestBooksContext from './BestBooksContext'
+import DisplayRandomBook from './DisplayRandomBook'
 
 export default class GetRandomBook extends React.Component {
-    // constructor(props) {
-    //     super(props)
-    //    console.log(props)
-    // }
 
-    static contextType = BestBooksContext
+    state = {
+        display: false,
+        bookFromDatabase: {
+                id: 80, 
+                award: "National Book Award for Fiction", 
+                title: "The Moviegoer", 
+                author: "Walker Percy", 
+                year: 1962
+            }
+    }
 
     getRandomBook = e => {
         e.preventDefault()
@@ -29,16 +34,36 @@ export default class GetRandomBook extends React.Component {
                 return res.json()
             })
             .then(res => {
-                this.context.setRandomBook(res)
-               //this.props.value.history.goBack()
+                this.setState({
+                    bookFromDatabase: res
+                })
             })
             .catch (err => console.log(err))
+            
+        this.setState({
+            display: true
+        })
+    }
+
+    handleCloseButton = () => {
+        this.setState({
+            display: false
+        })
     }
 
     render() {
+        console.log(this.state.bookFromDatabase.title)
+        const displayLogic = 
+            this.state.display 
+            ? <DisplayRandomBook 
+                bookFromDatabase={this.state.bookFromDatabase} 
+                onCloseButton={this.handleCloseButton}
+                />
+            : null
+
         return (
-            <div className='item'>
-                <hr className='hide-hr' />
+            <div>
+                {/* <hr className='hide-hr' /> */}
                 <h2>Random book generator</h2>
                     <button 
                         type="button"
@@ -46,6 +71,7 @@ export default class GetRandomBook extends React.Component {
                         >
                         Get Random Book
                     </button>
+               {displayLogic}
             </div>
         )
     }
