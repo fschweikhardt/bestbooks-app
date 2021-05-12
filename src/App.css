@@ -60,16 +60,24 @@ li {
   /* background-color: red; */
   position: absolute;
   top: 20%;
-  left: 30%;
-  width: 40%;
+  left: 5%;
+  width: 90%;
   /* padding: 50px; */
-  border-radius: 5px;
+  border-radius: 10px;
   border: 2px solid black;
 }
 
 .close {
   color: black;
   float: right;
+  font-size: 2em;
+  padding: 0 4px;
+  background-color: lightgray;
+  line-height: 1;
+}
+
+.close:hover {
+  background-color: darkgray;
 }
 
 @media all and (min-width: 800px) {

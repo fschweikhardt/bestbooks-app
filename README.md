@@ -33,3 +33,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
     - useContext for GetRandomBook
     - fade in? pop up until context updates
     - Add book quotes API
+    - close "X" needs to be bigger
