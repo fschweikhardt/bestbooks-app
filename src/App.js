@@ -84,8 +84,8 @@ class App extends React.Component {
           </header>
           <main>
             <LandingPage />
-            <About />
             <GetRandomBook />
+            <About />
             <BookSearch />
             <DisplayList />
             <AwardInfo />

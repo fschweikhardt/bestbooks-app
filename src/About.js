@@ -16,7 +16,6 @@ export default function About() {
                         marginLeft:'100px',
                         marginRight:'100px',
                         }}/>
-                <br />
             </div>
             <div className='item'>
                 <p>Click the "Get Random Book" Button</p>
