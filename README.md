@@ -29,7 +29,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 - The app is still in it's infancy. Everything is functional, but it needs a lot of work. 
 - Branch: book-pop-up 
-   - useContext for GetRandomBook
-    - fade in pop up until context updates? and blur background 
-    - Add quotes API?
-    
+   - useContext,
+   axios,
+   useEffect,
+   for GetRandomBook
+    - fade in pop up until context updates? and blur background
