@@ -1,4 +1,5 @@
 import React from 'react'
+import axios from 'axios'
 import { useState } from 'react'
 import config from './config'
 
@@ -23,16 +24,17 @@ export default function DisplayRandomBook(props) {
     let baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
     let url = `${baseUrl}${titleTrim}+inauthor:${authorUrl}&key=${config.API_BOOKS_KEY}`
 
-    fetch(url)
+    axios(url)
+        // .then(res => {
+        //     if (!res.ok) {
+        //         return res.json().then(e => Promise.reject(e))
+        //     }
+        //     return res.json()
+        // })
         .then(res => {
-            if (!res.ok) {
-                return res.json().then(e => Promise.reject(e))
-            }
-            return res.json()
-        })
-        .then(data => {
-            setThumbnail(data.items[0].volumeInfo.imageLinks.thumbnail)
-            setSnippet(data.items[0].volumeInfo.description)
+            // console.log(res)
+            setThumbnail(res.data.items[0].volumeInfo.imageLinks.thumbnail)
+            setSnippet(res.data.items[0].volumeInfo.description)
         })
         .catch(err => {
             console.error({ err })
