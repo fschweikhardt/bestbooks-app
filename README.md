@@ -27,8 +27,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## To Do's 
 
-- The app is still in it's infancy. Everything is functional, but it needs a lot of work. 
+-  Works, but needs some help. 
 - Branch: book-pop-up
-   - useEffect,
-   for GetRandomBook
-    - fade in pop up until context updates? and blur background
+   - try out useEffect somewhere
+   - fade in pop up until context updates? and blur background
+- Need to add more award lists and add styling to the lists and the list displays
