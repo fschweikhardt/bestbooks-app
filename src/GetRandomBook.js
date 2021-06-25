@@ -47,18 +47,19 @@ export default class GetRandomBook extends React.Component {
 
     handleCloseButton = () => {
         this.setState({
-            display: false
+            display: false,
+            // bookFromDatabase: null
+            // bookFromDatabase: {
+            //     id: null, 
+            //     award: null, 
+            //     title: null, 
+            //     author: null, 
+            //     year: null
+            // }
         })
     }
 
     render() {
-        const displayLogic = 
-            this.state.display 
-            ? <DisplayRandomBook 
-                bookFromDatabase={this.state.bookFromDatabase} 
-                onCloseButton={this.handleCloseButton}
-                />
-            : null
 
         return (
             <div>
@@ -69,7 +70,12 @@ export default class GetRandomBook extends React.Component {
                         >
                         Get Random Book
                     </button>
-               {displayLogic}
+               {this.state.display ? 
+                    <DisplayRandomBook 
+                        bookFromDatabase={this.state.bookFromDatabase} 
+                        onCloseButton={this.handleCloseButton}
+                    /> : null 
+                }
             </div>
         )
     }

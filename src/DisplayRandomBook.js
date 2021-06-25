@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import config from './config'
+import { BounceLoader } from 'react-spinners'
+
 
 export default function DisplayRandomBook(props) {
 
@@ -11,6 +13,7 @@ export default function DisplayRandomBook(props) {
 
     const [ thumbnail, setThumbnail ] = useState('')
     const [ snippet, setSnippet ] = useState('')
+    const [ loading, setLoading ] = useState(true)
     
     const book = props.bookFromDatabase
 
@@ -32,13 +35,15 @@ export default function DisplayRandomBook(props) {
         //     return res.json()
         // })
         .then(res => {
-            // console.log(res)
+            console.log(res)
             setThumbnail(res.data.items[0].volumeInfo.imageLinks.thumbnail)
             setSnippet(res.data.items[0].volumeInfo.description)
+            setLoading(false)
         })
         .catch(err => {
             console.error({ err })
             setThumbnail('')
+            setLoading(true)
         })
 
         // style={{className: 'pop-up-background': backgroundColor: 'yellow'}}
@@ -67,7 +72,14 @@ export default function DisplayRandomBook(props) {
                         <p>published in</p>
                         <h3>{book.year}</h3>
                         <br />
-                        <img src={thumbnail} alt='none available' />
+                        {
+                            loading ? 
+                            <BounceLoader 
+                                loading 
+                                // style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
+                                /> : 
+                            <img src={thumbnail} alt='none available' />
+                        }
                         <br />
                         <br />
                         <p>{snippet}</p>
