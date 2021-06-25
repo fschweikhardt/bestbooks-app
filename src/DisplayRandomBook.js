@@ -25,7 +25,7 @@ export default function DisplayRandomBook(props) {
     let titleTrim = title.replaceAll(' ', '')
     
     let baseUrl = 'https://www.googleapis.com/books/v1/volumes?q='
-    let url = `${baseUrl}${titleTrim}+inauthor:${authorUrl}&key=${config.API_BOOKS_KEY}`
+    let url = `${baseUrl}${titleTrim}+inauthor:${authorUrl}&maxResults=1&projection=lite&key=${config.API_BOOKS_KEY}`
 
     axios(url)
         // .then(res => {
@@ -43,7 +43,7 @@ export default function DisplayRandomBook(props) {
         .catch(err => {
             console.error({ err })
             setThumbnail('')
-            setLoading(true)
+            // setLoading(true)
         })
 
         // style={{className: 'pop-up-background': backgroundColor: 'yellow'}}
