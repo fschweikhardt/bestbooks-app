@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { useState } from 'react'
 import config from './config'
-import { BounceLoader } from 'react-spinners'
+import { ClipLoader } from 'react-spinners'
 
 
 export default function DisplayRandomBook(props) {
@@ -74,7 +74,7 @@ export default function DisplayRandomBook(props) {
                         <br />
                         {
                             loading ? 
-                            <BounceLoader 
+                            <ClipLoader 
                                 loading 
                                 // style={{ position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
                                 /> : 
