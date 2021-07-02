@@ -91,7 +91,7 @@ class App extends React.Component {
             <DisplayList />
             <AwardInfo />
           </main>
-          <footer><hr />Created by Frank Schweikhardt. All rights reserved. Copywrite 2021</footer>
+          <footer><hr />Created by Frank Schweikhardt. All rights reserved. Copyright 2021</footer>
         </div>
       </BestBooksContext.Provider>
     );
