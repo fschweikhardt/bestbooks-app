@@ -47,15 +47,7 @@ export default class GetRandomBook extends React.Component {
 
     handleCloseButton = () => {
         this.setState({
-            display: false,
-            // bookFromDatabase: null
-            // bookFromDatabase: {
-            //     id: null, 
-            //     award: null, 
-            //     title: null, 
-            //     author: null, 
-            //     year: null
-            // }
+            display: false
         })
     }
 

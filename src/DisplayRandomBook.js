@@ -50,9 +50,9 @@ export default function DisplayRandomBook(props) {
 
         return (
                 <div className="modal_content">
-                    <span className="close" onClick={handleClick}>
-                        &times;
-                    </span>
+                    <button className="close" onClick={handleClick} aria-label="Close dialog">
+                        &times; 
+                    </button>
                     <div 
                         style={{
                             border: 'dotted', 

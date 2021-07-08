@@ -180,8 +180,6 @@ export default class BookSearch extends React.Component {
                </li>
             )
         })
-
-        
             
         return (
             <div>
