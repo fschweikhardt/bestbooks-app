@@ -76,7 +76,7 @@ export default class BookSearch extends React.Component {
                         return res.json()
                     })
                     .then(res => {
-                        this.context.setAwardResults(res)
+                        this.context.setAwardData(res)
                     })
                     .catch (err => console.log(err))
 
@@ -102,7 +102,7 @@ export default class BookSearch extends React.Component {
                         return res.json()
                     })
                     .then(res => {
-                        this.context.setResults(res)
+                        this.context.setData(res)
                     })
                     .catch(err => console.log(err))
         }
@@ -132,7 +132,7 @@ export default class BookSearch extends React.Component {
                         if (res === 'no book available') {
                             return alert('no book for that award and year')
                         }
-                        this.context.setResults([res])
+                        this.context.setData([res])
                     })
                     .catch(err => console.log(err))
 
@@ -154,7 +154,7 @@ export default class BookSearch extends React.Component {
 
         //const radioButtons = this.state.awardSelected === 'nothing' ? `yellow` : 'lightgray'
         const displayAward = this.state.awardSelected === 'nothing' ? `` : `You selected: ${this.state.awardSelected}`
-        const awardOptions = this.context.awards.map(award => {
+        const awardOptions = this.context.allAwardTitles.map(award => {
             return (
                 <li 
                     key={award}

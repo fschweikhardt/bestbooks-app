@@ -12,21 +12,21 @@ import AwardInfo from './AwardInfo'
 
 class App extends React.Component {
   state = {
-    results: [],
-    awardResults: [],
-    awards: [],
+    yearData: [],
+    awardData: [],
+    allAwardTitles: [],
     displayAward: ''
   }
 
-  handleSetResults = setData => {
+  handleSetYearData = setData => {
     this.setState({
-      results: setData
+      yearData: setData
     })
   }
 
-  handleSetAwardResults = setData => {
+  handleSetAwardData = setData => {
     this.setState({
-      awardResults: setData
+      awardData: setData
     })
   }
 
@@ -56,7 +56,7 @@ class App extends React.Component {
             let newAwards = res.map(x => x.award)
             const distinctAwards = [...new Set(newAwards)]
             this.setState({
-                awards: distinctAwards
+                allAwardTitles: distinctAwards
             })
         })
         .catch(err => console.log(err))
@@ -64,12 +64,12 @@ class App extends React.Component {
 
   render() {
     const value = {
-      results: this.state.results,
-      awardResults: this.state.awardResults,
-      setResults: this.handleSetResults,
-      setAwardResults: this.handleSetAwardResults,
+      yearData: this.state.yearData,
+      awardData: this.state.awardData,
+      setYearData: this.handleSetYearData,
+      setAwardData: this.handleSetAwardData,
       setDisplayAward: this.handleSetDisplayAward,
-      awards: this.state.awards,
+      allAwardTitles: this.state.allAwardTitles,
       displayAward: this.state.displayAward
     }
 

@@ -7,8 +7,8 @@ export default class DisplayList extends React.Component {
     static contextType = BestBooksContext
 
     render() {
-        const yearList = this.context.results
-        const awardList = this.context.awardResults
+        const yearList = this.context.yearData
+        const awardList = this.context.awardData
 
         const noDisplay =
             <></>
@@ -20,7 +20,7 @@ export default class DisplayList extends React.Component {
                         <ul 
                         className='group-grid'
                         >
-                            {this.context.results.map( display => {
+                            {this.context.yearData.map( display => {
                                 return (
                                 <li key={display.id} 
                                 className='item'
@@ -49,7 +49,7 @@ export default class DisplayList extends React.Component {
                 <h1>{this.context.displayAward}</h1>
                 <div>
                     <ul className='group-awards'>
-                        {this.context.awardResults.map( display => {
+                        {this.context.awardData.map( display => {
                             return (
                             <li key={display.title} className='item'>
                                 <AwardBook 
