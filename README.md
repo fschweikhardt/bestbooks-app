@@ -27,8 +27,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## To Do's 
 
--  Works, but needs some help. 
-- Branch: book-pop-up
-   - try out useEffect somewhere
-   - fade in pop up until context updates? and blur background
-- Need to add more award lists and add styling to the lists and the list displays
+- maybe add background svg
+- add book reading animation
+- set up as fixed mobile display
+- create a page for award lists
