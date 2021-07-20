@@ -31,3 +31,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - add book reading animation
 - set up as fixed mobile display
 - create a page for award lists
+
+## Thanks to...
+- Drawkit www.drawkit.io
+- Undraw www.undraw.co
+...for making this project possible!
