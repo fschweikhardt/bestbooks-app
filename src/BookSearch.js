@@ -43,6 +43,7 @@ export default class BookSearch extends React.Component {
             .then(res => {
                 let newYears = res.map( x => x.year)
                 const distinctYears = [...new Set(newYears)]
+                console.log('years', distinctYears)
                 this.setState({
                     years: distinctYears
                 })
@@ -102,7 +103,7 @@ export default class BookSearch extends React.Component {
                         return res.json()
                     })
                     .then(res => {
-                        this.context.setData(res)
+                        this.context.setYearData(res)
                     })
                     .catch(err => console.log(err))
         }
@@ -129,14 +130,13 @@ export default class BookSearch extends React.Component {
                         return res.json()
                     })
                     .then(res => {
+                        console.log(res)
                         if (res === 'no book available') {
                             return alert('no book for that award and year')
                         }
-                        this.context.setData([res])
+                        this.context.setYearData([res])
                     })
-                    .catch(err => console.log(err))
-
-                
+                    .catch(err => console.log(err)) 
         } 
 
         //e.target.reset()
