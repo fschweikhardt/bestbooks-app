@@ -35,7 +35,6 @@ export default function DisplayRandomBook(props) {
         //     return res.json()
         // })
         .then(res => {
-            console.log(res)
             setThumbnail(res.data.items[0].volumeInfo.imageLinks.thumbnail)
             setSnippet(res.data.items[0].volumeInfo.description)
             setLoading(false)
