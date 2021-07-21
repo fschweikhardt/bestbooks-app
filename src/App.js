@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css'
 import config from './config'
 import BestBooksContext from './BestBooksContext'
-import LandingPage from './LandingPage' 
+import Header from './Header' 
 import GetRandomBook from './GetRandomBook' 
 import About from './About'
 import BookSearch from './BookSearch'
@@ -75,15 +75,8 @@ class App extends React.Component {
     return (
       <BestBooksContext.Provider value={value}>
         <div className='pop-up-background'>
-          <header style={{fontSize:'12px'}}>
-              “I shall be miserable if I have not an excellent library.” 
-              – Jane Austen in <i>Pride and Prejudice</i> 
-          <br/>
-          <br/>
-          <hr />
-          </header>
           <main>
-            <LandingPage />
+            <Header />
             <GetRandomBook />
             <About />
             <BookSearch />
