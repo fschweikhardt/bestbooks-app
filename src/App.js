@@ -4,7 +4,6 @@ import config from './config'
 import BestBooksContext from './BestBooksContext'
 import Header from './Header' 
 import GetRandomBook from './GetRandomBook' 
-import About from './About'
 import BookSearch from './BookSearch'
 import DisplayList from './DisplayList'
 import AwardInfo from './AwardInfo'
@@ -78,7 +77,6 @@ class App extends React.Component {
           <main>
             <Header />
             <GetRandomBook />
-            <About />
             <BookSearch />
             <DisplayList />
             <AwardInfo />

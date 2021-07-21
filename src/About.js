@@ -5,12 +5,18 @@ export default function About() {
     return (
         <div className='group'>
             {/* <div className='item'> */}
-                <img 
+                <img
+                    className='item' 
                     src={reading} 
                     alt={'reading'} 
-                    className='item'
-                    style={{width: '500px', height: 'auto'}}/>
-                <h3 className='item'>Need help finding a great book to read? Then this app is for you. Sort through award winning books and learn more about the world's most prestigeous award lists.</h3>
+                    style={{maxWidth: '500px', width: '200px'}}/>
+                <div className='item'>
+                    <h3>Need help finding a great book to read?</h3>
+                    <br/>
+                    <h3 style={{margin: '50px'}}>Then this app is for you. Sort through award winning books and learn more about the world's most prestigeous award lists.
+                    </h3>
+                </div>
+                
                 <br />
                 {/* <hr 
                     className='item hide-hr'

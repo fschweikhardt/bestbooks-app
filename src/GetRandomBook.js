@@ -1,6 +1,7 @@
 import React from 'react'
 import config from './config'
 import DisplayRandomBook from './DisplayRandomBook'
+import About from './About'
 
 export default class GetRandomBook extends React.Component {
 
@@ -68,6 +69,7 @@ export default class GetRandomBook extends React.Component {
                         onCloseButton={this.handleCloseButton}
                     /> : null 
                 }
+                <About />
             </div>
         )
     }
