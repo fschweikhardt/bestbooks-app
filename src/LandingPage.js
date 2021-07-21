@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function LandingPage() {
     return (
-        <div>
+        <div className='landing-page'>
             <h1 style={{
                 fontSize: '44px', 
                 fontStyle: 'italic'
