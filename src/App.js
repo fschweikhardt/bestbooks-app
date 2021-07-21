@@ -8,8 +8,6 @@ import About from './About'
 import BookSearch from './BookSearch'
 import DisplayList from './DisplayList'
 import AwardInfo from './AwardInfo'
-import reading from './images/reading.svg'
-import book from './images/open-book.png'
 
 class App extends React.Component {
   state = {
@@ -86,9 +84,7 @@ class App extends React.Component {
           </header>
           <main>
             <LandingPage />
-            <img src={reading} alt={'reading'} style={{width: '500px', height: 'auto'}}/>
             <GetRandomBook />
-            <img src={book} alt={'open book'} style={{width: '200px', height: 'auto'}}/>
             <About />
             <BookSearch />
             <DisplayList />
