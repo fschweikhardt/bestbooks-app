@@ -7,12 +7,12 @@ export default class GetRandomBook extends React.Component {
     state = {
         display: false,
         bookFromDatabase: {
-                id: '', 
-                award: '', 
-                title: '', 
-                author: '', 
-                year: ''
-            }
+            id: 80, 
+            award: "National Book Award for Fiction", 
+            title: "The Moviegoer", 
+            author: "Walker Percy", 
+            year: 1962
+        }
     }
 
     getRandomBook = e => {
