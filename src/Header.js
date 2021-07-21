@@ -20,27 +20,13 @@ export default function Header() {
                 </p>
                 <br />
                 <br />
-            </div>
+             </div>
 
-
-
-            <br />
-            <br />
-            <br />
-            <br />
+{/*
 
             <br />
             <br />
             <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-            <br />
-
             <br />
 
             <br />
@@ -54,6 +40,20 @@ export default function Header() {
             <br />
             <br />
             <br />
+
+            <br />
+
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br /> */}
         </div>
     )
 }
