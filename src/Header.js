@@ -11,10 +11,10 @@ export default function Header() {
             }}>
                 BEST BOOKS
             </h1>
-            <div className='item' style={{fontSize:'12px', borderRadius: '50%', padding: '20px'}}>
+            <div className='item' style={{fontSize:'12px', borderRadius: '50%', padding: '20px', backgroundColor: 'red'}}>
                 <br />
                 <br />
-                <p>
+                <p style={{backgroundColor: 'purple'}}>
                 “I shall be miserable if I have not an excellent library.” 
                 – Jane Austen in <i>Pride and Prejudice</i> 
                 </p>
