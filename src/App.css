@@ -67,7 +67,10 @@ li {
 .landing-page {
   background-image: url(./images/purple.svg);
   height: 500px;
-  /* position: relative; */
+  /* position: top; */
+  /* bottom: 0;
+  width: 100%;
+  height: 10vw; */
 }
 
 /* <-- flexbox --> */
